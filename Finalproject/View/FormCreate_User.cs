@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Finalproject.View
 {
@@ -27,6 +28,11 @@ namespace Finalproject.View
         private void txtname_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btncreatenewuserr_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

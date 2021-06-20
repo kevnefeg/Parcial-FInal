@@ -35,7 +35,9 @@ namespace Finalproject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            FrmPrincipal principal = new FrmPrincipal();
+            this.Hide();
+            principal.Show();
         }
 
         private void btnCreatUser_Click(object sender, EventArgs e)
