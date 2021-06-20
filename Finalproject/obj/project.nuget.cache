@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UyvwYLGwypie/6O4wCImF/2bFvDC9Lawh5R9qG3gR4kz4BKgSTKB9OFwZjy61U7pkS56CPCdHtXdIbfatumnVw==",
+  "dgSpecHash": "xSSTuE6VtmC1aY/qWUqc0qZ+/rr6wdDe7nVvzQODrkC9A3BaILwirrdX1aR0JePOU8i6/G+htr2hCf7KSfyZeQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kev_n\\Documents\\ARCHIVOS UCA\\final2.0\\Finalproject\\Finalproject.csproj",
+  "projectFilePath": "C:\\Users\\kev_n\\Documents\\ARCHIVOS UCA\\finalll\\Finalproject\\Finalproject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kev_n\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kev_n\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
