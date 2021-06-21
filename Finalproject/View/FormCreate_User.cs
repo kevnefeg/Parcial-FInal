@@ -32,7 +32,19 @@ namespace Finalproject.View
 
         private void btncreatenewuserr_Click(object sender, EventArgs e)
         {
-            
+            SqlConnection cn = new SqlConnection("Server=ANDRES;Database=VaccinationDB;Trusted_Connection=True;");
+            cn.Open();
+            string name = txtname.Text;
+            string email = txtemail.Text;
+            string password = txtpassword.Text;
+            string user = txtid.Text;
+            string address = txtaddress.Text;
+            int Idtype = Int32.Parse(txtstaff.Text);
+            SqlCommand query = new SqlCommand("INSERT INTO STAFF VALUES('"+name+"','"+email+ "','"+password+"','"+user+"'," +
+                "'"+address+"','"+Idtype+"')",cn);
+            query.ExecuteNonQuery();
+            cn.Close();
+
         }
     }
 }
