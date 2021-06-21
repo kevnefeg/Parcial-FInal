@@ -5,11 +5,11 @@ SET LANGUAGE 'us_english';
 
 --Creando las tablas
 CREATE TABLE STAFF(
-	id INT PRIMARY KEY IDENTITY,
-	name_staff VARCHAR(50) NOT NULL,
+	id varchar(30) PRIMARY KEY,
+	name_staff VARCHAR(100) NOT NULL,
 	email VARCHAR(40) NOT NULL,
-	password_staff VARCHAR(50) UNIQUE NOT NULL,
-	user_staff VARCHAR(40) UNIQUE NOT NULL,
+	password_staff VARCHAR(50) DEFAULT NULL,
+	user_staff VARCHAR(40) DEFAULT NULL,
 	address_staff VARCHAR(50) NOT NULL,
 	id_type INT NOT NULL
 );
@@ -24,13 +24,13 @@ CREATE TABLE CABIN(
 
 CREATE TABLE LOGIN_INFO(
 	id_cabin INT NOT NULL,
-	id_staff INT NOT NULL,
+	id_staff varchar(30) NOT NULL,
 	login_date DATETIME NOT NULL,
 	CONSTRAINT PK_LOGIN PRIMARY KEY (id_cabin,id_staff)
 );
 
 CREATE TABLE STAFF_TYPE(
-	id INT PRIMARY KEY IDENTITY,
+	id INT PRIMARY KEY,
 	staff_type VARCHAR(50) NOT NULL
 );
 
@@ -39,7 +39,7 @@ CREATE TABLE APPOINTMENT(
 	place VARCHAR(50) NOT NULL,
 	first_dose_date DATETIME NOT NULL,
 	second_dose_time DATETIME,
-	id_staff INT NOT NULL,
+	id_staff varchar(30) NOT NULL,
 	dui_citizen CHAR(10) NOT NULL,
 );
 
@@ -134,4 +134,7 @@ ALTER TABLE CITIZENXSIDE_EFFECT
 ADD CONSTRAINT FK_CIT_SIDE_SIDE_EFFECT
 FOREIGN KEY (id_side_effect) REFERENCES SIDE_EFFECT (id)
 
-INSERT INTO STAFF_TYPE VALUES ('Gestor')
+--Datos quemados para los tipos de empleados
+INSERT INTO STAFF_TYPE VALUES (1,'Platform Manager')
+INSERT INTO STAFF_TYPE VALUES (2,'Cabin Manager')
+INSERT INTO STAFF_TYPE VALUES (3,'Staff')

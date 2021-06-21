@@ -11,7 +11,7 @@ namespace Finalproject.SqlServerContext
         public string Place { get; set; }
         public DateTime FirstDoseDate { get; set; }
         public DateTime? SecondDoseTime { get; set; }
-        public int IdStaff { get; set; }
+        public string IdStaff { get; set; }
         public string DuiCitizen { get; set; }
 
         public virtual Citizen DuiCitizenNavigation { get; set; }

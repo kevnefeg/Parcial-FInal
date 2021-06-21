@@ -41,7 +41,7 @@ namespace Finalproject.SqlServerContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+            modelBuilder.HasAnnotation("Relational:Collation", "Modern_Spanish_CI_AS");
 
             modelBuilder.Entity<Appointment>(entity =>
             {
@@ -60,7 +60,11 @@ namespace Finalproject.SqlServerContext
                     .HasColumnType("datetime")
                     .HasColumnName("first_dose_date");
 
-                entity.Property(e => e.IdStaff).HasColumnName("id_staff");
+                entity.Property(e => e.IdStaff)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("id_staff");
 
                 entity.Property(e => e.Place)
                     .IsRequired()
@@ -89,10 +93,10 @@ namespace Finalproject.SqlServerContext
             {
                 entity.ToTable("CABIN");
 
-                entity.HasIndex(e => e.Email, "UQ__CABIN__AB6E61641C5F7FC8")
+                entity.HasIndex(e => e.Email, "UQ__CABIN__AB6E616417F0E9BB")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Phone, "UQ__CABIN__B43B145F77FF4664")
+                entity.HasIndex(e => e.Phone, "UQ__CABIN__B43B145FB3B5A74C")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -152,14 +156,14 @@ namespace Finalproject.SqlServerContext
             modelBuilder.Entity<Citizen>(entity =>
             {
                 entity.HasKey(e => e.Dui)
-                    .HasName("PK__CITIZEN__D876F1BE67F0D254");
+                    .HasName("PK__CITIZEN__D876F1BE948578A2");
 
                 entity.ToTable("CITIZEN");
 
-                entity.HasIndex(e => e.Email, "UQ__CITIZEN__AB6E6164D2A620DA")
+                entity.HasIndex(e => e.Email, "UQ__CITIZEN__AB6E616430336255")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Phone, "UQ__CITIZEN__B43B145FCF55A875")
+                entity.HasIndex(e => e.Phone, "UQ__CITIZEN__B43B145F1A5E3D49")
                     .IsUnique();
 
                 entity.Property(e => e.Dui)
@@ -249,7 +253,7 @@ namespace Finalproject.SqlServerContext
             {
                 entity.ToTable("INSTITUTION");
 
-                entity.HasIndex(e => e.Identifier, "UQ__INSTITUT__D112ED480D6EFDC4")
+                entity.HasIndex(e => e.Identifier, "UQ__INSTITUT__D112ED4860000709")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -276,7 +280,10 @@ namespace Finalproject.SqlServerContext
 
                 entity.Property(e => e.IdCabin).HasColumnName("id_cabin");
 
-                entity.Property(e => e.IdStaff).HasColumnName("id_staff");
+                entity.Property(e => e.IdStaff)
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("id_staff");
 
                 entity.Property(e => e.LoginDate)
                     .HasColumnType("datetime")
@@ -316,7 +323,9 @@ namespace Finalproject.SqlServerContext
             {
                 entity.ToTable("STAFF_TYPE");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .ValueGeneratedNever()
+                    .HasColumnName("id");
 
                 entity.Property(e => e.StaffType1)
                     .IsRequired()
@@ -351,13 +360,10 @@ namespace Finalproject.SqlServerContext
             {
                 entity.ToTable("STAFF");
 
-                entity.HasIndex(e => e.PasswordStaff, "UQ__STAFF__0AAD92D2142DFC70")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.UserStaff, "UQ__STAFF__EDDC6F3DE9162633")
-                    .IsUnique();
-
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("id");
 
                 entity.Property(e => e.AddressStaff)
                     .IsRequired()
@@ -375,18 +381,16 @@ namespace Finalproject.SqlServerContext
 
                 entity.Property(e => e.NameStaff)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("name_staff");
 
                 entity.Property(e => e.PasswordStaff)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("password_staff");
 
                 entity.Property(e => e.UserStaff)
-                    .IsRequired()
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("user_staff");

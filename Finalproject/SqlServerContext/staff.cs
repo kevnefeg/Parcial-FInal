@@ -13,7 +13,7 @@ namespace Finalproject.SqlServerContext
             LoginInfos = new HashSet<LoginInfo>();
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string NameStaff { get; set; }
         public string Email { get; set; }
         public string PasswordStaff { get; set; }
