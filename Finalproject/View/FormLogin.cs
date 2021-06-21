@@ -42,8 +42,20 @@ namespace Finalproject
 
         private void btnCreatUser_Click(object sender, EventArgs e)
         {
-            frmCreate_User newuser = new frmCreate_User();
+            frm_NewPltManager newuser = new frm_NewPltManager();
             newuser.ShowDialog();
          }
+
+        private void btn_PltManager_Click(object sender, EventArgs e)
+        {
+            frm_NewPltManager newPltManager = new frm_NewPltManager();
+            newPltManager.ShowDialog();
+        }
+
+        private void btn_Staff_Click(object sender, EventArgs e)
+        {
+            frm_NewStaff NewStaff = new frm_NewStaff();
+            NewStaff.ShowDialog();
+        }
     }
 }

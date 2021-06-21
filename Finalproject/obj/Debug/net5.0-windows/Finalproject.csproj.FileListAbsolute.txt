@@ -141,6 +141,7 @@ C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\D
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\Microsoft.IdentityModel.Tokens.dll
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\System.Diagnostics.DiagnosticSource.dll
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\System.Runtime.Caching.dll
@@ -154,8 +155,13 @@ C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\D
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.View.frmCreate_User.resources
+C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.csproj.AssemblyReference.cache
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.frmLogin.resources
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.FrmPrincipal.resources
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.csproj.GenerateResource.cache
@@ -168,10 +174,5 @@ C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\D
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\ref\Finalproject.dll
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.pdb
 C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.genruntimeconfig.cache
-C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.csproj.AssemblyReference.cache
-C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
-C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
-C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
-C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
-C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.View.frm_NewPltManager.resources
+C:\Users\hp\Documents\POO\Proyecto final BD.POO\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.frm_NewStaff.resources

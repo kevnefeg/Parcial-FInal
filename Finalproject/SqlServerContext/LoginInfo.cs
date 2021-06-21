@@ -8,7 +8,7 @@ namespace Finalproject.SqlServerContext
     public partial class LoginInfo
     {
         public int IdCabin { get; set; }
-        public int IdStaff { get; set; }
+        public string IdStaff { get; set; }
         public DateTime LoginDate { get; set; }
 
         public virtual Cabin IdCabinNavigation { get; set; }

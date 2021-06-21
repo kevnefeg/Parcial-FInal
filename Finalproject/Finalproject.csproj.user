@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="View\FormNewStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\FormCreate_User.cs">
+    <Compile Update="View\FormNewPlatformManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\FormLogin.cs">
