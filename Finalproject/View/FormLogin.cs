@@ -1,4 +1,4 @@
-﻿using Finalproject.View;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Finalproject.SqlServerContext;
 
 namespace Finalproject
 {
@@ -18,44 +19,49 @@ namespace Finalproject
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtuser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            FrmPrincipal principal = new FrmPrincipal();
-            this.Hide();
-            principal.Show();
-        }
+            //se valida si el gestor a ingresar se encuentra en la base de datos
+            var db = new VaccinationDBContext();
+            var StaffList = db.staff
+                .OrderBy(s => s.Id)
+                .ToList();
 
-        private void btnCreatUser_Click(object sender, EventArgs e)
-        {
-            frm_NewPltManager newuser = new frm_NewPltManager();
-            newuser.ShowDialog();
-         }
+            var result = StaffList.Where(
+                    s => s.UserStaff.Equals(txtuser.Text) &&
+                         s.PasswordStaff.Equals(txtPassword.Text) &&
+                         s.IdType.Equals(1)
+                ).ToList();
 
-        private void btn_PltManager_Click(object sender, EventArgs e)
-        {
-            frm_NewPltManager newPltManager = new frm_NewPltManager();
-            newPltManager.ShowDialog();
+            if (result.Count == 0)
+            {
+                //El gestor a ingresar no existe en la base de datos
+                MessageBox.Show("Platform Manager doesn't exist", "ERROR",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                var Date = DateTime.Now;
+
+                LoginInfo NewLogin = new LoginInfo();
+
+                NewLogin.IdCabin = 1;
+                NewLogin.IdStaff = txtuser.Text;
+                NewLogin.LoginDate = Date;
+                db.Add(NewLogin);
+                db.SaveChanges();
+
+                FrmPrincipal principal = new FrmPrincipal();
+                this.Hide();
+                principal.Show();
+            }
         }
 
         private void btn_Staff_Click(object sender, EventArgs e)
         {
             frm_NewStaff NewStaff = new frm_NewStaff();
             NewStaff.ShowDialog();
+
         }
     }
 }

@@ -44,6 +44,7 @@ namespace Finalproject
             this.lbl_Staff_type = new System.Windows.Forms.Label();
             this.cmb_StaffType = new System.Windows.Forms.ComboBox();
             this.btn_CreateStaff = new System.Windows.Forms.Button();
+            this.btn_back = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -207,7 +208,7 @@ namespace Finalproject
             // 
             // btn_CreateStaff
             // 
-            this.btn_CreateStaff.Location = new System.Drawing.Point(118, 303);
+            this.btn_CreateStaff.Location = new System.Drawing.Point(193, 303);
             this.btn_CreateStaff.Name = "btn_CreateStaff";
             this.btn_CreateStaff.Size = new System.Drawing.Size(93, 37);
             this.btn_CreateStaff.TabIndex = 16;
@@ -215,11 +216,22 @@ namespace Finalproject
             this.btn_CreateStaff.UseVisualStyleBackColor = true;
             this.btn_CreateStaff.Click += new System.EventHandler(this.btn_CreateStaff_Click);
             // 
+            // btn_back
+            // 
+            this.btn_back.Location = new System.Drawing.Point(41, 303);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(93, 37);
+            this.btn_back.TabIndex = 17;
+            this.btn_back.Text = "Back";
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
             // frm_NewStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(335, 352);
+            this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_CreateStaff);
             this.Controls.Add(this.tableLayoutPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -227,6 +239,7 @@ namespace Finalproject
             this.Name = "frm_NewStaff";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNewStaff";
+            this.Load += new System.EventHandler(this.frm_NewStaff_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -252,5 +265,6 @@ namespace Finalproject
         private System.Windows.Forms.Label lbl_Staff_type;
         private System.Windows.Forms.ComboBox cmb_StaffType;
         private System.Windows.Forms.Button btn_CreateStaff;
+        private System.Windows.Forms.Button btn_back;
     }
 }

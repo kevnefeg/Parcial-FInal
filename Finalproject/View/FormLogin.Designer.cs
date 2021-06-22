@@ -34,7 +34,6 @@ namespace Finalproject
             this.txtuser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btn_PltManager = new System.Windows.Forms.Button();
             this.btn_Staff = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -55,7 +54,6 @@ namespace Finalproject
             this.label2.Size = new System.Drawing.Size(57, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Password";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtuser
             // 
@@ -64,7 +62,6 @@ namespace Finalproject
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(106, 23);
             this.txtuser.TabIndex = 3;
-            this.txtuser.TextChanged += new System.EventHandler(this.txtuser_TextChanged);
             // 
             // txtPassword
             // 
@@ -73,11 +70,11 @@ namespace Finalproject
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(106, 23);
             this.txtPassword.TabIndex = 4;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(116, 178);
+            this.btnLogin.Location = new System.Drawing.Point(126, 177);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(87, 26);
@@ -86,19 +83,9 @@ namespace Finalproject
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // btn_PltManager
-            // 
-            this.btn_PltManager.Location = new System.Drawing.Point(12, 241);
-            this.btn_PltManager.Name = "btn_PltManager";
-            this.btn_PltManager.Size = new System.Drawing.Size(146, 30);
-            this.btn_PltManager.TabIndex = 7;
-            this.btn_PltManager.Text = "New Platform Manager";
-            this.btn_PltManager.UseVisualStyleBackColor = true;
-            this.btn_PltManager.Click += new System.EventHandler(this.btn_PltManager_Click);
-            // 
             // btn_Staff
             // 
-            this.btn_Staff.Location = new System.Drawing.Point(216, 241);
+            this.btn_Staff.Location = new System.Drawing.Point(216, 242);
             this.btn_Staff.Name = "btn_Staff";
             this.btn_Staff.Size = new System.Drawing.Size(110, 30);
             this.btn_Staff.TabIndex = 8;
@@ -112,7 +99,6 @@ namespace Finalproject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 284);
             this.Controls.Add(this.btn_Staff);
-            this.Controls.Add(this.btn_PltManager);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtuser);
@@ -136,7 +122,6 @@ namespace Finalproject
         private System.Windows.Forms.TextBox txtuser;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btn_PltManager;
         private System.Windows.Forms.Button btn_Staff;
     }
 }
