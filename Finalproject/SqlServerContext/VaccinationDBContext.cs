@@ -93,10 +93,10 @@ namespace Finalproject.SqlServerContext
             {
                 entity.ToTable("CABIN");
 
-                entity.HasIndex(e => e.Email, "UQ__CABIN__AB6E616417F0E9BB")
+                entity.HasIndex(e => e.Email, "UQ__CABIN__AB6E6164588F6500")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Phone, "UQ__CABIN__B43B145FB3B5A74C")
+                entity.HasIndex(e => e.Phone, "UQ__CABIN__B43B145FC1B342AB")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -388,12 +388,14 @@ namespace Finalproject.SqlServerContext
                 entity.Property(e => e.PasswordStaff)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("password_staff");
+                    .HasColumnName("password_staff")
+                    .HasDefaultValueSql("('None')");
 
                 entity.Property(e => e.UserStaff)
                     .HasMaxLength(40)
                     .IsUnicode(false)
-                    .HasColumnName("user_staff");
+                    .HasColumnName("user_staff")
+                    .HasDefaultValueSql("('None')");
 
                 entity.HasOne(d => d.IdTypeNavigation)
                     .WithMany(p => p.staff)

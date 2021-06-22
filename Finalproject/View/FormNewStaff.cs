@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using Finalproject.SqlServerContext;
 
 namespace Finalproject
 {
     public partial class frm_NewStaff : Form
     {
-        SqlConnection cn = new SqlConnection("Server=ANDRES;Database=VaccinationDB;Trusted_Connection=True;");
 
         public frm_NewStaff()
         {
@@ -22,43 +21,70 @@ namespace Finalproject
 
         private void btn_CreateStaff_Click(object sender, EventArgs e)
         {
-            int n;
-
-            if (cmb_StaffType.SelectedItem == "Cabin Manager")
+            int n = cmb_StaffType.SelectedIndex;
+            int index = n + 1;
+            if(index == 1)
             {
-                n = 2;
-                Staff(n);
-                this.Close();
-            }
-            else if (cmb_StaffType.SelectedItem == "Staff")
-            {
-                n = 3;
-                Staff(n);
-                this.Close();
+                FormNewPltManager newManager = new FormNewPltManager(txt_Staff_id.Text, txt_Staff_name.Text, 
+                    txt_Staff_Email.Text, txt_Staff_Address.Text);
+                newManager.Show();
             }
             else
             {
-                MessageBox.Show("Seleccione un tipo de empleado", "ERROR", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+                var db = new VaccinationDBContext();
 
+                //se valida si el empleado ya se encuentra en la base de datos
+                var StaffList = db.staff
+                    .OrderBy(u => u.Id)
+                    .ToList();
+
+                var result = StaffList.Where(
+                    u => u.Id.Equals(txt_Staff_id)
+                    ).ToList();
+
+                //si el contador da 0 significa que el empleado no se encuentra en la base de datos
+                if (result.Count == 0)
+                {
+                    string id = txt_Staff_id.Text;
+                    string name = txt_Staff_name.Text;
+                    string email = txt_Staff_Email.Text;
+                    string address = txt_Staff_Address.Text;
+                    int type = cmb_StaffType.SelectedIndex;
+
+                    staff NewStaff = new staff();
+
+                    NewStaff.Id = id;
+                    NewStaff.NameStaff = name;
+                    NewStaff.Email = email;
+                    NewStaff.AddressStaff = address;
+                    NewStaff.IdType = type + 1;
+                    db.Add(NewStaff);
+                    db.SaveChanges();
+
+                    MessageBox.Show("Registered successfully", "Staff",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                //Si da diferente de 0 significa que el gestor ya se encuentra en la base de datos
+                else
+                {
+                    MessageBox.Show("The user already exists", "ERROR",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
-        private void Staff(int n)
+        private void frm_NewStaff_Load(object sender, EventArgs e)
         {
-            cn.Open();
-            string id = txt_Staff_id.Text;
-            string name = txt_Staff_name.Text;
-            string email = txt_Staff_Email.Text;
-            string address = txt_Staff_Address.Text;
-            int Idtype = n;
-            SqlCommand query = new SqlCommand("INSERT INTO STAFF(id, name_staff, email, address_staff, id_type) " +
-                "VALUES ('"+id+"','"+name+"','"+email+"','"+address+"','"+Idtype+"')", cn);
-            query.ExecuteNonQuery();
-            cn.Close();
+            var db = new VaccinationDBContext();
+            cmb_StaffType.DataSource = db.StaffTypes.ToList();
+            cmb_StaffType.DisplayMember = "StaffType1";
+            cmb_StaffType.ValueMember = "Id";
+        }
 
-            MessageBox.Show("Se a registrado exitosamente el nuevo empleado!");
-
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

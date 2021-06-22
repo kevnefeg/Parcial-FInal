@@ -8,8 +8,8 @@ CREATE TABLE STAFF(
 	id varchar(30) PRIMARY KEY,
 	name_staff VARCHAR(100) NOT NULL,
 	email VARCHAR(40) NOT NULL,
-	password_staff VARCHAR(50) DEFAULT NULL,
-	user_staff VARCHAR(40) DEFAULT NULL,
+	password_staff VARCHAR(50) DEFAULT 'None' NOT NULL,
+	user_staff VARCHAR(40) DEFAULT 'None' NOT NULL,
 	address_staff VARCHAR(50) NOT NULL,
 	id_type INT NOT NULL
 );
@@ -138,3 +138,5 @@ FOREIGN KEY (id_side_effect) REFERENCES SIDE_EFFECT (id)
 INSERT INTO STAFF_TYPE VALUES (1,'Platform Manager')
 INSERT INTO STAFF_TYPE VALUES (2,'Cabin Manager')
 INSERT INTO STAFF_TYPE VALUES (3,'Staff')
+
+INSERT INTO CABIN VALUES ('Santa Tecla', '7698-1548', 'Oscar Mandela', 'cabina1@gmail.com')
