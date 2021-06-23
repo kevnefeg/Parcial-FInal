@@ -24,6 +24,7 @@ namespace Finalproject.SqlServerContext
         public virtual DbSet<CitizenxsideEffect> CitizenxsideEffects { get; set; }
         public virtual DbSet<DiseaseType> DiseaseTypes { get; set; }
         public virtual DbSet<Institution> Institutions { get; set; }
+        public virtual DbSet<InstitutionType> InstitutionTypes { get; set; }
         public virtual DbSet<LoginInfo> LoginInfos { get; set; }
         public virtual DbSet<SideEffect> SideEffects { get; set; }
         public virtual DbSet<StaffType> StaffTypes { get; set; }
@@ -94,10 +95,10 @@ namespace Finalproject.SqlServerContext
             {
                 entity.ToTable("CABIN");
 
-                entity.HasIndex(e => e.Email, "UQ__CABIN__AB6E61640211C622")
+                entity.HasIndex(e => e.Email, "UQ__CABIN__AB6E61646471C84A")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Phone, "UQ__CABIN__B43B145F49A07881")
+                entity.HasIndex(e => e.Phone, "UQ__CABIN__B43B145F3F969D8C")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -165,14 +166,17 @@ namespace Finalproject.SqlServerContext
             modelBuilder.Entity<Citizen>(entity =>
             {
                 entity.HasKey(e => e.Dui)
-                    .HasName("PK__CITIZEN__D876F1BED8A4785C");
+                    .HasName("PK__CITIZEN__D876F1BEBC6E8C72");
 
                 entity.ToTable("CITIZEN");
 
-                entity.HasIndex(e => e.Email, "UQ__CITIZEN__AB6E616454FCE529")
+                entity.HasIndex(e => e.Email, "UQ__CITIZEN__AB6E6164D1642D49")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Phone, "UQ__CITIZEN__B43B145F30552827")
+                entity.HasIndex(e => e.Phone, "UQ__CITIZEN__B43B145FC124C2F8")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.Identifier, "UQ__CITIZEN__D112ED48C7343DEA")
                     .IsUnique();
 
                 entity.Property(e => e.Dui)
@@ -205,6 +209,11 @@ namespace Finalproject.SqlServerContext
                 entity.Property(e => e.IdQueue).HasColumnName("id_queue");
 
                 entity.Property(e => e.IdVaccination).HasColumnName("id_vaccination");
+
+                entity.Property(e => e.Identifier)
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("identifier");
 
                 entity.Property(e => e.Phone)
                     .IsRequired()
@@ -274,34 +283,46 @@ namespace Finalproject.SqlServerContext
             {
                 entity.ToTable("INSTITUTION");
 
-                entity.HasIndex(e => e.Identifier, "UQ__INSTITUT__D112ED48AB41B165")
-                    .IsUnique();
-
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.Identifier)
-                    .IsRequired()
-                    .HasMaxLength(30)
-                    .IsUnicode(false)
-                    .HasColumnName("identifier");
+                entity.Property(e => e.IdType).HasColumnName("id_type");
 
                 entity.Property(e => e.Institution1)
                     .IsRequired()
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("institution");
+
+                entity.HasOne(d => d.IdTypeNavigation)
+                    .WithMany(p => p.Institutions)
+                    .HasForeignKey(d => d.IdType)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_INSTITUTION_TYPE");
+            });
+
+            modelBuilder.Entity<InstitutionType>(entity =>
+            {
+                entity.ToTable("INSTITUTION_TYPE");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.InstType)
+                    .IsRequired()
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("inst_type");
             });
 
             modelBuilder.Entity<LoginInfo>(entity =>
             {
-                entity.HasKey(e => new { e.IdCabin, e.IdStaff })
-                    .HasName("PK_LOGIN");
-
                 entity.ToTable("LOGIN_INFO");
+
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.IdCabin).HasColumnName("id_cabin");
 
                 entity.Property(e => e.IdStaff)
+                    .IsRequired()
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("id_staff");

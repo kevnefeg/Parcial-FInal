@@ -309,3 +309,4 @@ C:\Users\Mariana Lagrava\Desktop\Parcial-Final\Finalproject\obj\Debug\net5.0-win
 C:\Users\Mariana Lagrava\Desktop\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\ref\Finalproject.dll
 C:\Users\Mariana Lagrava\Desktop\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.pdb
 C:\Users\Mariana Lagrava\Desktop\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.genruntimeconfig.cache
+C:\Users\Mariana Lagrava\Desktop\Parcial-Final\Finalproject\obj\Debug\net5.0-windows\Finalproject.View.FrmAddInstitution.resources

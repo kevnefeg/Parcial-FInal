@@ -23,10 +23,10 @@ CREATE TABLE CABIN(
 );
 
 CREATE TABLE LOGIN_INFO(
+	id INT PRIMARY KEY IDENTITY,
 	id_cabin INT NOT NULL,
 	id_staff varchar(30) NOT NULL,
 	login_date DATETIME NOT NULL,
-	CONSTRAINT PK_LOGIN PRIMARY KEY (id_cabin,id_staff)
 );
 
 CREATE TABLE STAFF_TYPE(
@@ -50,6 +50,7 @@ CREATE TABLE CITIZEN(
 	address_citizen VARCHAR(50) NOT NULL,
 	phone CHAR(9) UNIQUE NOT NULL,
 	email VARCHAR(40) UNIQUE,
+	identifier VARCHAR(30) UNIQUE,
 	id_institution INT,
 	id_queue INT,
 	id_vaccination INT
@@ -57,8 +58,13 @@ CREATE TABLE CITIZEN(
 
 CREATE TABLE INSTITUTION(
 	id INT PRIMARY KEY IDENTITY,
-	identifier VARCHAR(30) UNIQUE NOT NULL,
-	institution VARCHAR(40) NOT NULL
+	institution VARCHAR(40) NOT NULL,
+	id_type INT NOT NULL
+);
+
+CREATE TABLE INSTITUTION_TYPE(
+	id INT PRIMARY KEY IDENTITY,
+	inst_type VARCHAR(40) NOT NULL
 );
 
 CREATE TABLE CHRONIC_DISEASE(
@@ -145,6 +151,10 @@ ALTER TABLE CHRONIC_DISEASE
 ADD CONSTRAINT FK_DISEASE_TYPE
 FOREIGN KEY (id_disease_type) REFERENCES DISEASE_TYPE (id)
 
+ALTER TABLE INSTITUTION 
+ADD CONSTRAINT FK_INSTITUTION_TYPE
+FOREIGN KEY (id_type) REFERENCES INSTITUTION_TYPE (id)
+
 --Datos quemados para los tipos de empleados
 INSERT INTO STAFF_TYPE VALUES (1,'Gestor')
 INSERT INTO STAFF_TYPE VALUES (2,'Encargado de cabina')
@@ -153,5 +163,21 @@ INSERT INTO STAFF_TYPE VALUES (3,'Empleado')
 --Datos quemados para los tipos de enfermedades
 INSERT INTO DISEASE_TYPE VALUES ('Enfermedades Transmisibles')
 INSERT INTO DISEASE_TYPE VALUES ('Enfermedades no transmisibles')
+INSERT INTO DISEASE_TYPE VALUES ('Discapacidad')
 
+--Datos quemados para los instituciones
+INSERT INTO INSTITUTION VALUES ('ISSS')
+INSERT INTO DISEASE_TYPE VALUES ('Enfermedades no transmisibles')
+INSERT INTO DISEASE_TYPE VALUES ('Discapacidad')
+
+--Datos quemados para las tipos de instituciones
+INSERT INTO INSTITUTION_TYPE VALUES ('Sistema Integrado de Salud')
+INSERT INTO INSTITUTION_TYPE VALUES ('Educación')
+INSERT INTO INSTITUTION_TYPE VALUES ('Seguridad Nacional')
+INSERT INTO INSTITUTION_TYPE VALUES ('Gobierno Central')
+INSERT INTO INSTITUTION_TYPE VALUES ('Periodismo')
+INSERT INTO INSTITUTION VALUES ('ISSS', 1)
+
+--Datos quemados de cabina
 INSERT INTO CABIN VALUES ('Santa Tecla', '7698-1548', 'Oscar Mandela', 'cabina1@gmail.com')
+

@@ -13,9 +13,10 @@ namespace Finalproject.SqlServerContext
         }
 
         public int Id { get; set; }
-        public string Identifier { get; set; }
         public string Institution1 { get; set; }
+        public int IdType { get; set; }
 
+        public virtual InstitutionType IdTypeNavigation { get; set; }
         public virtual ICollection<Citizen> Citizens { get; set; }
     }
 }
