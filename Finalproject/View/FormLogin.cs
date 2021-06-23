@@ -21,39 +21,48 @@ namespace Finalproject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //se valida si el gestor a ingresar se encuentra en la base de datos
-            var db = new VaccinationDBContext();
-            var StaffList = db.staff
-                .OrderBy(s => s.Id)
-                .ToList();
 
-            var result = StaffList.Where(
-                    s => s.UserStaff.Equals(txtuser.Text) &&
-                         s.PasswordStaff.Equals(txtPassword.Text) &&
-                         s.IdType.Equals(1)
-                ).ToList();
-
-            if (result.Count == 0)
+            if (txtuser.Text == "" || txtPassword.Text == "")
             {
-                //El gestor a ingresar no existe en la base de datos
-                MessageBox.Show("Platform Manager doesn't exist", "ERROR",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No se permiten campos vacíos", "ERROR", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
             else
             {
-                var Date = DateTime.Now;
+                //se valida si el gestor a ingresar se encuentra en la base de datos
+                var db = new VaccinationDBContext();
+                var StaffList = db.staff
+                    .OrderBy(s => s.Id)
+                    .ToList();
 
-                LoginInfo NewLogin = new LoginInfo();
+                var result = StaffList.Where(
+                        s => s.UserStaff.Equals(txtuser.Text) &&
+                             s.PasswordStaff.Equals(txtPassword.Text) &&
+                             s.IdType.Equals(1)
+                    ).ToList();
 
-                NewLogin.IdCabin = 1;
-                NewLogin.IdStaff = txtuser.Text;
-                NewLogin.LoginDate = Date;
-                db.Add(NewLogin);
-                db.SaveChanges();
+                if (result.Count == 0)
+                {
+                    //El gestor a ingresar no existe en la base de datos
+                    MessageBox.Show("Este usuario no existe o no tiene nivel de acceso suficiente", "ERROR",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    var Date = DateTime.Now;
 
-                FrmPrincipal principal = new FrmPrincipal();
-                this.Hide();
-                principal.Show();
+                    LoginInfo NewLogin = new LoginInfo();
+
+                    NewLogin.IdCabin = 1;
+                    NewLogin.IdStaff = txtuser.Text;
+                    NewLogin.LoginDate = Date;
+                    db.Add(NewLogin);
+                    db.SaveChanges();
+
+                    FrmPrincipal principal = new FrmPrincipal();
+                    this.Hide();
+                    principal.Show();
+                }
             }
         }
 
@@ -61,7 +70,6 @@ namespace Finalproject
         {
             frm_NewStaff NewStaff = new frm_NewStaff();
             NewStaff.ShowDialog();
-
         }
     }
 }

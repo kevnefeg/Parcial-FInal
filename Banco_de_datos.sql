@@ -135,8 +135,8 @@ ADD CONSTRAINT FK_CIT_SIDE_SIDE_EFFECT
 FOREIGN KEY (id_side_effect) REFERENCES SIDE_EFFECT (id)
 
 --Datos quemados para los tipos de empleados
-INSERT INTO STAFF_TYPE VALUES (1,'Platform Manager')
-INSERT INTO STAFF_TYPE VALUES (2,'Cabin Manager')
-INSERT INTO STAFF_TYPE VALUES (3,'Staff')
+INSERT INTO STAFF_TYPE VALUES (1,'Gestor')
+INSERT INTO STAFF_TYPE VALUES (2,'Encargado de cabina')
+INSERT INTO STAFF_TYPE VALUES (3,'Empleado')
 
 INSERT INTO CABIN VALUES ('Santa Tecla', '7698-1548', 'Oscar Mandela', 'cabina1@gmail.com')

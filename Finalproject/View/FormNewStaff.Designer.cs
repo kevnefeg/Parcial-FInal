@@ -29,6 +29,7 @@ namespace Finalproject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblid = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
@@ -45,6 +46,7 @@ namespace Finalproject
             this.cmb_StaffType = new System.Windows.Forms.ComboBox();
             this.btn_CreateStaff = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
+            this.tlpId = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -84,8 +86,8 @@ namespace Finalproject
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel2.Controls.Add(this.lbl_Staff_id, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txt_Staff_id, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbl_Staff_name, 0, 1);
@@ -113,36 +115,36 @@ namespace Finalproject
             this.lbl_Staff_id.AutoSize = true;
             this.lbl_Staff_id.Location = new System.Drawing.Point(3, 14);
             this.lbl_Staff_id.Name = "lbl_Staff_id";
-            this.lbl_Staff_id.Size = new System.Drawing.Size(68, 15);
+            this.lbl_Staff_id.Size = new System.Drawing.Size(93, 15);
             this.lbl_Staff_id.TabIndex = 0;
-            this.lbl_Staff_id.Text = "ID";
+            this.lbl_Staff_id.Text = "Identificador:";
             // 
             // txt_Staff_id
             // 
             this.txt_Staff_id.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Staff_id.Location = new System.Drawing.Point(77, 10);
+            this.txt_Staff_id.Location = new System.Drawing.Point(102, 10);
             this.txt_Staff_id.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Staff_id.Name = "txt_Staff_id";
-            this.txt_Staff_id.Size = new System.Drawing.Size(168, 23);
+            this.txt_Staff_id.Size = new System.Drawing.Size(143, 23);
             this.txt_Staff_id.TabIndex = 13;
             // 
             // lbl_Staff_name
             // 
             this.lbl_Staff_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Staff_name.AutoSize = true;
-            this.lbl_Staff_name.Location = new System.Drawing.Point(3, 57);
+            this.lbl_Staff_name.Location = new System.Drawing.Point(3, 49);
             this.lbl_Staff_name.Name = "lbl_Staff_name";
-            this.lbl_Staff_name.Size = new System.Drawing.Size(68, 15);
+            this.lbl_Staff_name.Size = new System.Drawing.Size(93, 30);
             this.lbl_Staff_name.TabIndex = 1;
-            this.lbl_Staff_name.Text = "Fullname";
+            this.lbl_Staff_name.Text = "Nombre completo:";
             // 
             // txt_Staff_Address
             // 
             this.txt_Staff_Address.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Staff_Address.Location = new System.Drawing.Point(77, 139);
+            this.txt_Staff_Address.Location = new System.Drawing.Point(102, 139);
             this.txt_Staff_Address.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Staff_Address.Name = "txt_Staff_Address";
-            this.txt_Staff_Address.Size = new System.Drawing.Size(168, 23);
+            this.txt_Staff_Address.Size = new System.Drawing.Size(143, 23);
             this.txt_Staff_Address.TabIndex = 9;
             // 
             // lbl_Staff_email
@@ -151,17 +153,17 @@ namespace Finalproject
             this.lbl_Staff_email.AutoSize = true;
             this.lbl_Staff_email.Location = new System.Drawing.Point(3, 100);
             this.lbl_Staff_email.Name = "lbl_Staff_email";
-            this.lbl_Staff_email.Size = new System.Drawing.Size(68, 15);
+            this.lbl_Staff_email.Size = new System.Drawing.Size(93, 15);
             this.lbl_Staff_email.TabIndex = 2;
-            this.lbl_Staff_email.Text = "Email";
+            this.lbl_Staff_email.Text = "Email:";
             // 
             // txt_Staff_Email
             // 
             this.txt_Staff_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Staff_Email.Location = new System.Drawing.Point(77, 96);
+            this.txt_Staff_Email.Location = new System.Drawing.Point(102, 96);
             this.txt_Staff_Email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Staff_Email.Name = "txt_Staff_Email";
-            this.txt_Staff_Email.Size = new System.Drawing.Size(168, 23);
+            this.txt_Staff_Email.Size = new System.Drawing.Size(143, 23);
             this.txt_Staff_Email.TabIndex = 8;
             // 
             // lbl_Staff_address
@@ -170,28 +172,28 @@ namespace Finalproject
             this.lbl_Staff_address.AutoSize = true;
             this.lbl_Staff_address.Location = new System.Drawing.Point(3, 143);
             this.lbl_Staff_address.Name = "lbl_Staff_address";
-            this.lbl_Staff_address.Size = new System.Drawing.Size(68, 15);
+            this.lbl_Staff_address.Size = new System.Drawing.Size(93, 15);
             this.lbl_Staff_address.TabIndex = 3;
-            this.lbl_Staff_address.Text = "Address";
+            this.lbl_Staff_address.Text = "Dirección:";
             // 
             // txt_Staff_name
             // 
             this.txt_Staff_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Staff_name.Location = new System.Drawing.Point(77, 53);
+            this.txt_Staff_name.Location = new System.Drawing.Point(102, 53);
             this.txt_Staff_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Staff_name.Name = "txt_Staff_name";
-            this.txt_Staff_name.Size = new System.Drawing.Size(168, 23);
+            this.txt_Staff_name.Size = new System.Drawing.Size(143, 23);
             this.txt_Staff_name.TabIndex = 7;
             // 
             // lbl_Staff_type
             // 
             this.lbl_Staff_type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Staff_type.AutoSize = true;
-            this.lbl_Staff_type.Location = new System.Drawing.Point(3, 187);
+            this.lbl_Staff_type.Location = new System.Drawing.Point(3, 179);
             this.lbl_Staff_type.Name = "lbl_Staff_type";
-            this.lbl_Staff_type.Size = new System.Drawing.Size(68, 15);
+            this.lbl_Staff_type.Size = new System.Drawing.Size(93, 30);
             this.lbl_Staff_type.TabIndex = 5;
-            this.lbl_Staff_type.Text = "Staff Type";
+            this.lbl_Staff_type.Text = "Tipo de empleado:";
             // 
             // cmb_StaffType
             // 
@@ -201,9 +203,9 @@ namespace Finalproject
             this.cmb_StaffType.Items.AddRange(new object[] {
             "Cabin Manager",
             "Staff"});
-            this.cmb_StaffType.Location = new System.Drawing.Point(77, 183);
+            this.cmb_StaffType.Location = new System.Drawing.Point(102, 183);
             this.cmb_StaffType.Name = "cmb_StaffType";
-            this.cmb_StaffType.Size = new System.Drawing.Size(168, 23);
+            this.cmb_StaffType.Size = new System.Drawing.Size(143, 23);
             this.cmb_StaffType.TabIndex = 14;
             // 
             // btn_CreateStaff
@@ -212,7 +214,7 @@ namespace Finalproject
             this.btn_CreateStaff.Name = "btn_CreateStaff";
             this.btn_CreateStaff.Size = new System.Drawing.Size(93, 37);
             this.btn_CreateStaff.TabIndex = 16;
-            this.btn_CreateStaff.Text = "Create";
+            this.btn_CreateStaff.Text = "Registrar";
             this.btn_CreateStaff.UseVisualStyleBackColor = true;
             this.btn_CreateStaff.Click += new System.EventHandler(this.btn_CreateStaff_Click);
             // 
@@ -222,9 +224,15 @@ namespace Finalproject
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(93, 37);
             this.btn_back.TabIndex = 17;
-            this.btn_back.Text = "Back";
+            this.btn_back.Text = "Atrás";
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // tlpId
+            // 
+            this.tlpId.IsBalloon = true;
+            this.tlpId.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.tlpId.ToolTipTitle = "Tipo de empleado";
             // 
             // frm_NewStaff
             // 
@@ -266,5 +274,6 @@ namespace Finalproject
         private System.Windows.Forms.ComboBox cmb_StaffType;
         private System.Windows.Forms.Button btn_CreateStaff;
         private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.ToolTip tlpId;
     }
 }

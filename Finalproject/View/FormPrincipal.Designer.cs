@@ -49,18 +49,16 @@ namespace Finalproject
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtAge = new System.Windows.Forms.TextBox();
             this.tabVaccination = new System.Windows.Forms.TabPage();
-            this.tabDateFollowUp = new System.Windows.Forms.TabPage();
-            this.tabVaccinationProcess = new System.Windows.Forms.TabPage();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_Place = new System.Windows.Forms.Label();
+            this.lbl_Date = new System.Windows.Forms.Label();
             this.lblNameVacc = new System.Windows.Forms.Label();
             this.lblDateVacc = new System.Windows.Forms.Label();
             this.lblPlace = new System.Windows.Forms.Label();
             this.lbl_Name = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_Date = new System.Windows.Forms.Label();
-            this.lbl_Place = new System.Windows.Forms.Label();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.lbl_Dui = new System.Windows.Forms.Label();
-            this.txt_Dui = new System.Windows.Forms.TextBox();
+            this.tabDateFollowUp = new System.Windows.Forms.TabPage();
+            this.btn_printDFU = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_showPlace = new System.Windows.Forms.Label();
             this.lbl_showDate = new System.Windows.Forms.Label();
@@ -68,13 +66,15 @@ namespace Finalproject
             this.lbl_DateDFU = new System.Windows.Forms.Label();
             this.lbl_PlaceDFU = new System.Windows.Forms.Label();
             this.lbl_showname = new System.Windows.Forms.Label();
-            this.btn_printDFU = new System.Windows.Forms.Button();
+            this.txt_Dui = new System.Windows.Forms.TextBox();
+            this.lbl_Dui = new System.Windows.Forms.Label();
+            this.tabVaccinationProcess = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabDateProcess.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabVaccination.SuspendLayout();
-            this.tabDateFollowUp.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tabDateFollowUp.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,7 +103,7 @@ namespace Finalproject
             this.tabDateProcess.Padding = new System.Windows.Forms.Padding(3);
             this.tabDateProcess.Size = new System.Drawing.Size(755, 382);
             this.tabDateProcess.TabIndex = 0;
-            this.tabDateProcess.Text = "Date Process";
+            this.tabDateProcess.Text = "Proceso de cita";
             this.tabDateProcess.UseVisualStyleBackColor = true;
             // 
             // btnRegister
@@ -114,6 +114,7 @@ namespace Finalproject
             this.btnRegister.TabIndex = 15;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // cmbInstitution
             // 
@@ -291,27 +292,56 @@ namespace Finalproject
             this.tabVaccination.Text = "Vaccination";
             this.tabVaccination.UseVisualStyleBackColor = true;
             // 
-            // tabDateFollowUp
+            // btnPrint
             // 
-            this.tabDateFollowUp.Controls.Add(this.btn_printDFU);
-            this.tabDateFollowUp.Controls.Add(this.tableLayoutPanel3);
-            this.tabDateFollowUp.Controls.Add(this.txt_Dui);
-            this.tabDateFollowUp.Controls.Add(this.lbl_Dui);
-            this.tabDateFollowUp.Location = new System.Drawing.Point(4, 24);
-            this.tabDateFollowUp.Name = "tabDateFollowUp";
-            this.tabDateFollowUp.Size = new System.Drawing.Size(755, 382);
-            this.tabDateFollowUp.TabIndex = 2;
-            this.tabDateFollowUp.Text = "Date Follow Up";
-            this.tabDateFollowUp.UseVisualStyleBackColor = true;
+            this.btnPrint.Location = new System.Drawing.Point(299, 289);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(101, 42);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
             // 
-            // tabVaccinationProcess
+            // tableLayoutPanel2
             // 
-            this.tabVaccinationProcess.Location = new System.Drawing.Point(4, 24);
-            this.tabVaccinationProcess.Name = "tabVaccinationProcess";
-            this.tabVaccinationProcess.Size = new System.Drawing.Size(874, 384);
-            this.tabVaccinationProcess.TabIndex = 3;
-            this.tabVaccinationProcess.Text = "Vaccine Process";
-            this.tabVaccinationProcess.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel2.Controls.Add(this.lbl_Place, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_Date, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblNameVacc, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblDateVacc, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblPlace, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_Name, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(213, 71);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(277, 161);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // lbl_Place
+            // 
+            this.lbl_Place.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Place.AutoSize = true;
+            this.lbl_Place.Location = new System.Drawing.Point(86, 106);
+            this.lbl_Place.Name = "lbl_Place";
+            this.lbl_Place.Size = new System.Drawing.Size(188, 15);
+            this.lbl_Place.TabIndex = 5;
+            this.lbl_Place.Text = "label1";
+            // 
+            // lbl_Date
+            // 
+            this.lbl_Date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Date.AutoSize = true;
+            this.lbl_Date.Location = new System.Drawing.Point(86, 53);
+            this.lbl_Date.Name = "lbl_Date";
+            this.lbl_Date.Size = new System.Drawing.Size(188, 15);
+            this.lbl_Date.TabIndex = 4;
+            this.lbl_Date.Text = "label1";
             // 
             // lblNameVacc
             // 
@@ -354,73 +384,27 @@ namespace Finalproject
             this.lbl_Name.TabIndex = 3;
             this.lbl_Name.Text = "label1";
             // 
-            // tableLayoutPanel2
+            // tabDateFollowUp
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel2.Controls.Add(this.lbl_Place, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_Date, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lblNameVacc, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblDateVacc, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lblPlace, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_Name, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(213, 71);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(277, 161);
-            this.tableLayoutPanel2.TabIndex = 4;
+            this.tabDateFollowUp.Controls.Add(this.btn_printDFU);
+            this.tabDateFollowUp.Controls.Add(this.tableLayoutPanel3);
+            this.tabDateFollowUp.Controls.Add(this.txt_Dui);
+            this.tabDateFollowUp.Controls.Add(this.lbl_Dui);
+            this.tabDateFollowUp.Location = new System.Drawing.Point(4, 24);
+            this.tabDateFollowUp.Name = "tabDateFollowUp";
+            this.tabDateFollowUp.Size = new System.Drawing.Size(755, 382);
+            this.tabDateFollowUp.TabIndex = 2;
+            this.tabDateFollowUp.Text = "Date Follow Up";
+            this.tabDateFollowUp.UseVisualStyleBackColor = true;
             // 
-            // lbl_Date
+            // btn_printDFU
             // 
-            this.lbl_Date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_Date.AutoSize = true;
-            this.lbl_Date.Location = new System.Drawing.Point(86, 53);
-            this.lbl_Date.Name = "lbl_Date";
-            this.lbl_Date.Size = new System.Drawing.Size(188, 15);
-            this.lbl_Date.TabIndex = 4;
-            this.lbl_Date.Text = "label1";
-            // 
-            // lbl_Place
-            // 
-            this.lbl_Place.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_Place.AutoSize = true;
-            this.lbl_Place.Location = new System.Drawing.Point(86, 106);
-            this.lbl_Place.Name = "lbl_Place";
-            this.lbl_Place.Size = new System.Drawing.Size(188, 15);
-            this.lbl_Place.TabIndex = 5;
-            this.lbl_Place.Text = "label1";
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(299, 289);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(101, 42);
-            this.btnPrint.TabIndex = 5;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            // 
-            // lbl_Dui
-            // 
-            this.lbl_Dui.AutoSize = true;
-            this.lbl_Dui.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Dui.Location = new System.Drawing.Point(162, 41);
-            this.lbl_Dui.Name = "lbl_Dui";
-            this.lbl_Dui.Size = new System.Drawing.Size(35, 20);
-            this.lbl_Dui.TabIndex = 0;
-            this.lbl_Dui.Text = "Dui:";
-            // 
-            // txt_Dui
-            // 
-            this.txt_Dui.Location = new System.Drawing.Point(224, 41);
-            this.txt_Dui.Name = "txt_Dui";
-            this.txt_Dui.Size = new System.Drawing.Size(97, 23);
-            this.txt_Dui.TabIndex = 1;
+            this.btn_printDFU.Location = new System.Drawing.Point(280, 309);
+            this.btn_printDFU.Name = "btn_printDFU";
+            this.btn_printDFU.Size = new System.Drawing.Size(101, 42);
+            this.btn_printDFU.TabIndex = 6;
+            this.btn_printDFU.Text = "Print";
+            this.btn_printDFU.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
             // 
@@ -505,14 +489,31 @@ namespace Finalproject
             this.lbl_showname.TabIndex = 3;
             this.lbl_showname.Text = "label1";
             // 
-            // btn_printDFU
+            // txt_Dui
             // 
-            this.btn_printDFU.Location = new System.Drawing.Point(280, 309);
-            this.btn_printDFU.Name = "btn_printDFU";
-            this.btn_printDFU.Size = new System.Drawing.Size(101, 42);
-            this.btn_printDFU.TabIndex = 6;
-            this.btn_printDFU.Text = "Print";
-            this.btn_printDFU.UseVisualStyleBackColor = true;
+            this.txt_Dui.Location = new System.Drawing.Point(224, 41);
+            this.txt_Dui.Name = "txt_Dui";
+            this.txt_Dui.Size = new System.Drawing.Size(97, 23);
+            this.txt_Dui.TabIndex = 1;
+            // 
+            // lbl_Dui
+            // 
+            this.lbl_Dui.AutoSize = true;
+            this.lbl_Dui.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Dui.Location = new System.Drawing.Point(162, 41);
+            this.lbl_Dui.Name = "lbl_Dui";
+            this.lbl_Dui.Size = new System.Drawing.Size(35, 20);
+            this.lbl_Dui.TabIndex = 0;
+            this.lbl_Dui.Text = "Dui:";
+            // 
+            // tabVaccinationProcess
+            // 
+            this.tabVaccinationProcess.Location = new System.Drawing.Point(4, 24);
+            this.tabVaccinationProcess.Name = "tabVaccinationProcess";
+            this.tabVaccinationProcess.Size = new System.Drawing.Size(755, 382);
+            this.tabVaccinationProcess.TabIndex = 3;
+            this.tabVaccinationProcess.Text = "Vaccine Process";
+            this.tabVaccinationProcess.UseVisualStyleBackColor = true;
             // 
             // FrmPrincipal
             // 
@@ -531,10 +532,10 @@ namespace Finalproject
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabVaccination.ResumeLayout(false);
-            this.tabDateFollowUp.ResumeLayout(false);
-            this.tabDateFollowUp.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tabDateFollowUp.ResumeLayout(false);
+            this.tabDateFollowUp.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);

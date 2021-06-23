@@ -45,19 +45,19 @@ namespace Finalproject
             this.lbl_ManagerUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_ManagerUser.Location = new System.Drawing.Point(95, 88);
             this.lbl_ManagerUser.Name = "lbl_ManagerUser";
-            this.lbl_ManagerUser.Size = new System.Drawing.Size(42, 21);
+            this.lbl_ManagerUser.Size = new System.Drawing.Size(67, 21);
             this.lbl_ManagerUser.TabIndex = 0;
-            this.lbl_ManagerUser.Text = "User";
+            this.lbl_ManagerUser.Text = "Usuario:";
             // 
             // lbl_ManagerPass
             // 
             this.lbl_ManagerPass.AutoSize = true;
             this.lbl_ManagerPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ManagerPass.Location = new System.Drawing.Point(61, 149);
+            this.lbl_ManagerPass.Location = new System.Drawing.Point(61, 177);
             this.lbl_ManagerPass.Name = "lbl_ManagerPass";
-            this.lbl_ManagerPass.Size = new System.Drawing.Size(76, 21);
+            this.lbl_ManagerPass.Size = new System.Drawing.Size(92, 21);
             this.lbl_ManagerPass.TabIndex = 1;
-            this.lbl_ManagerPass.Text = "Password";
+            this.lbl_ManagerPass.Text = "Contraseña:";
             // 
             // lbl_showuser
             // 
@@ -78,11 +78,11 @@ namespace Finalproject
             // 
             // btn_create
             // 
-            this.btn_create.Location = new System.Drawing.Point(141, 263);
+            this.btn_create.Location = new System.Drawing.Point(143, 266);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(101, 49);
             this.btn_create.TabIndex = 4;
-            this.btn_create.Text = "Create";
+            this.btn_create.Text = "Registrar";
             this.btn_create.UseVisualStyleBackColor = true;
             this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 
