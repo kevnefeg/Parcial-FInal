@@ -17,9 +17,9 @@ CREATE TABLE STAFF(
 CREATE TABLE CABIN(
 	id INT PRIMARY KEY IDENTITY,
 	address_cabin VARCHAR(50) NOT NULL,
-	phone CHAR(9) UNIQUE NOT NULL,
+	phone CHAR(9) NOT NULL,
 	in_charge VARCHAR(50) NOT NULL,
-	email VARCHAR(40) UNIQUE NOT NULL
+	email VARCHAR(40) NOT NULL
 );
 
 CREATE TABLE LOGIN_INFO(
@@ -48,9 +48,9 @@ CREATE TABLE CITIZEN(
 	citizen_name VARCHAR(50) NOT NULL,
 	age INT NOT NULL,
 	address_citizen VARCHAR(50) NOT NULL,
-	phone CHAR(9) UNIQUE NOT NULL,
-	email VARCHAR(40) UNIQUE,
-	identifier VARCHAR(30) UNIQUE,
+	phone CHAR(9)  NOT NULL,
+	email VARCHAR(40) DEFAULT 'None',
+	identifier VARCHAR(30) DEFAULT 'None',
 	id_institution INT,
 	id_queue INT,
 	id_vaccination INT
@@ -165,18 +165,13 @@ INSERT INTO DISEASE_TYPE VALUES ('Enfermedades Transmisibles')
 INSERT INTO DISEASE_TYPE VALUES ('Enfermedades no transmisibles')
 INSERT INTO DISEASE_TYPE VALUES ('Discapacidad')
 
---Datos quemados para los instituciones
-INSERT INTO INSTITUTION VALUES ('ISSS')
-INSERT INTO DISEASE_TYPE VALUES ('Enfermedades no transmisibles')
-INSERT INTO DISEASE_TYPE VALUES ('Discapacidad')
-
 --Datos quemados para las tipos de instituciones
 INSERT INTO INSTITUTION_TYPE VALUES ('Sistema Integrado de Salud')
 INSERT INTO INSTITUTION_TYPE VALUES ('Educación')
 INSERT INTO INSTITUTION_TYPE VALUES ('Seguridad Nacional')
 INSERT INTO INSTITUTION_TYPE VALUES ('Gobierno Central')
 INSERT INTO INSTITUTION_TYPE VALUES ('Periodismo')
-INSERT INTO INSTITUTION VALUES ('ISSS', 1)
+
 
 --Datos quemados de cabina
 INSERT INTO CABIN VALUES ('Santa Tecla', '7698-1548', 'Oscar Mandela', 'cabina1@gmail.com')

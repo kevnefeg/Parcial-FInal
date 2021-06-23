@@ -46,6 +46,7 @@ namespace Finalproject
             this.lblage = new System.Windows.Forms.Label();
             this.lblDui = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtDisease = new System.Windows.Forms.TextBox();
             this.chkDiseaseAsk = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -80,6 +81,10 @@ namespace Finalproject
             this.txt_Dui = new System.Windows.Forms.TextBox();
             this.lbl_Dui = new System.Windows.Forms.Label();
             this.tabVaccinationProcess = new System.Windows.Forms.TabPage();
+            this.dgvDisease = new System.Windows.Forms.DataGridView();
+            this.Enfermedad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoEnfermedad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabDateProcess.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -90,6 +95,7 @@ namespace Finalproject
             this.tableLayoutPanel2.SuspendLayout();
             this.tabDateFollowUp.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -107,6 +113,7 @@ namespace Finalproject
             // 
             // tabDateProcess
             // 
+            this.tabDateProcess.Controls.Add(this.dgvDisease);
             this.tabDateProcess.Controls.Add(this.groupBox3);
             this.tabDateProcess.Controls.Add(this.groupBox2);
             this.tabDateProcess.Controls.Add(this.groupBox1);
@@ -269,6 +276,7 @@ namespace Finalproject
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.txtDisease);
             this.groupBox2.Controls.Add(this.chkDiseaseAsk);
             this.groupBox2.Controls.Add(this.label2);
@@ -276,10 +284,20 @@ namespace Finalproject
             this.groupBox2.Controls.Add(this.cmbDisType);
             this.groupBox2.Location = new System.Drawing.Point(384, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(361, 184);
+            this.groupBox2.Size = new System.Drawing.Size(361, 196);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Enfermedad crónica (opcional)";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(223, 161);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Agregar enfermedad";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtDisease
             // 
@@ -303,7 +321,7 @@ namespace Finalproject
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 124);
+            this.label2.Location = new System.Drawing.Point(23, 130);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 15);
             this.label2.TabIndex = 14;
@@ -313,7 +331,7 @@ namespace Finalproject
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 80);
+            this.label3.Location = new System.Drawing.Point(57, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 15);
             this.label3.TabIndex = 12;
@@ -645,6 +663,37 @@ namespace Finalproject
             this.tabVaccinationProcess.Text = "Vaccine Process";
             this.tabVaccinationProcess.UseVisualStyleBackColor = true;
             // 
+            // dgvDisease
+            // 
+            this.dgvDisease.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDisease.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Enfermedad,
+            this.TipoEnfermedad,
+            this.IdTipo});
+            this.dgvDisease.Location = new System.Drawing.Point(441, 242);
+            this.dgvDisease.Name = "dgvDisease";
+            this.dgvDisease.RowTemplate.Height = 25;
+            this.dgvDisease.Size = new System.Drawing.Size(304, 145);
+            this.dgvDisease.TabIndex = 19;
+            // 
+            // Enfermedad
+            // 
+            this.Enfermedad.HeaderText = "Enfermedad";
+            this.Enfermedad.Name = "Enfermedad";
+            this.Enfermedad.Width = 125;
+            // 
+            // TipoEnfermedad
+            // 
+            this.TipoEnfermedad.HeaderText = "Tipo de enfermedad";
+            this.TipoEnfermedad.Name = "TipoEnfermedad";
+            this.TipoEnfermedad.Width = 135;
+            // 
+            // IdTipo
+            // 
+            this.IdTipo.HeaderText = "IdTipo";
+            this.IdTipo.Name = "IdTipo";
+            this.IdTipo.Visible = false;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -674,6 +723,7 @@ namespace Finalproject
             this.tabDateFollowUp.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -731,5 +781,10 @@ namespace Finalproject
         private System.Windows.Forms.TextBox txtDisease;
         private System.Windows.Forms.ComboBox cmbInstitution;
         private System.Windows.Forms.Button btnAddNewInst;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvDisease;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Enfermedad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoEnfermedad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdTipo;
     }
 }

@@ -95,12 +95,6 @@ namespace Finalproject.SqlServerContext
             {
                 entity.ToTable("CABIN");
 
-                entity.HasIndex(e => e.Email, "UQ__CABIN__AB6E61646471C84A")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.Phone, "UQ__CABIN__B43B145F3F969D8C")
-                    .IsUnique();
-
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.AddressCabin)
@@ -166,18 +160,9 @@ namespace Finalproject.SqlServerContext
             modelBuilder.Entity<Citizen>(entity =>
             {
                 entity.HasKey(e => e.Dui)
-                    .HasName("PK__CITIZEN__D876F1BEBC6E8C72");
+                    .HasName("PK__CITIZEN__D876F1BE0D183E7C");
 
                 entity.ToTable("CITIZEN");
-
-                entity.HasIndex(e => e.Email, "UQ__CITIZEN__AB6E6164D1642D49")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.Phone, "UQ__CITIZEN__B43B145FC124C2F8")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.Identifier, "UQ__CITIZEN__D112ED48C7343DEA")
-                    .IsUnique();
 
                 entity.Property(e => e.Dui)
                     .HasMaxLength(10)
@@ -202,7 +187,8 @@ namespace Finalproject.SqlServerContext
                 entity.Property(e => e.Email)
                     .HasMaxLength(40)
                     .IsUnicode(false)
-                    .HasColumnName("email");
+                    .HasColumnName("email")
+                    .HasDefaultValueSql("('None')");
 
                 entity.Property(e => e.IdInstitution).HasColumnName("id_institution");
 
@@ -213,7 +199,8 @@ namespace Finalproject.SqlServerContext
                 entity.Property(e => e.Identifier)
                     .HasMaxLength(30)
                     .IsUnicode(false)
-                    .HasColumnName("identifier");
+                    .HasColumnName("identifier")
+                    .HasDefaultValueSql("('None')");
 
                 entity.Property(e => e.Phone)
                     .IsRequired()
