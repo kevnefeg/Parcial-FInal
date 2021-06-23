@@ -19,9 +19,10 @@ namespace Finalproject.SqlServerContext
 
         public virtual DbSet<Appointment> Appointments { get; set; }
         public virtual DbSet<Cabin> Cabins { get; set; }
-        public virtual DbSet<ChronicDesease> ChronicDeseases { get; set; }
+        public virtual DbSet<ChronicDisease> ChronicDiseases { get; set; }
         public virtual DbSet<Citizen> Citizens { get; set; }
         public virtual DbSet<CitizenxsideEffect> CitizenxsideEffects { get; set; }
+        public virtual DbSet<DiseaseType> DiseaseTypes { get; set; }
         public virtual DbSet<Institution> Institutions { get; set; }
         public virtual DbSet<LoginInfo> LoginInfos { get; set; }
         public virtual DbSet<SideEffect> SideEffects { get; set; }
@@ -93,10 +94,10 @@ namespace Finalproject.SqlServerContext
             {
                 entity.ToTable("CABIN");
 
-                entity.HasIndex(e => e.Email, "UQ__CABIN__AB6E6164588F6500")
+                entity.HasIndex(e => e.Email, "UQ__CABIN__AB6E61640211C622")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Phone, "UQ__CABIN__B43B145FC1B342AB")
+                entity.HasIndex(e => e.Phone, "UQ__CABIN__B43B145F49A07881")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -127,17 +128,17 @@ namespace Finalproject.SqlServerContext
                     .IsFixedLength(true);
             });
 
-            modelBuilder.Entity<ChronicDesease>(entity =>
+            modelBuilder.Entity<ChronicDisease>(entity =>
             {
-                entity.ToTable("CHRONIC_DESEASE");
+                entity.ToTable("CHRONIC_DISEASE");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.ChronicDesease1)
+                entity.Property(e => e.ChronicDisease1)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("chronic_desease");
+                    .HasColumnName("chronic_disease");
 
                 entity.Property(e => e.DuiCitizen)
                     .IsRequired()
@@ -146,24 +147,32 @@ namespace Finalproject.SqlServerContext
                     .HasColumnName("dui_citizen")
                     .IsFixedLength(true);
 
+                entity.Property(e => e.IdDiseaseType).HasColumnName("id_disease_type");
+
                 entity.HasOne(d => d.DuiCitizenNavigation)
-                    .WithMany(p => p.ChronicDeseases)
+                    .WithMany(p => p.ChronicDiseases)
                     .HasForeignKey(d => d.DuiCitizen)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CHRONIC_DESEASE_CITIZEN");
+                    .HasConstraintName("FK_CHRONIC_DISEASE_CITIZEN");
+
+                entity.HasOne(d => d.IdDiseaseTypeNavigation)
+                    .WithMany(p => p.ChronicDiseases)
+                    .HasForeignKey(d => d.IdDiseaseType)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DISEASE_TYPE");
             });
 
             modelBuilder.Entity<Citizen>(entity =>
             {
                 entity.HasKey(e => e.Dui)
-                    .HasName("PK__CITIZEN__D876F1BE948578A2");
+                    .HasName("PK__CITIZEN__D876F1BED8A4785C");
 
                 entity.ToTable("CITIZEN");
 
-                entity.HasIndex(e => e.Email, "UQ__CITIZEN__AB6E616430336255")
+                entity.HasIndex(e => e.Email, "UQ__CITIZEN__AB6E616454FCE529")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Phone, "UQ__CITIZEN__B43B145F1A5E3D49")
+                entity.HasIndex(e => e.Phone, "UQ__CITIZEN__B43B145F30552827")
                     .IsUnique();
 
                 entity.Property(e => e.Dui)
@@ -187,7 +196,6 @@ namespace Finalproject.SqlServerContext
                     .HasColumnName("citizen_name");
 
                 entity.Property(e => e.Email)
-                    .IsRequired()
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("email");
@@ -249,11 +257,24 @@ namespace Finalproject.SqlServerContext
                     .HasConstraintName("FK_CIT_SIDE_SIDE_EFFECT");
             });
 
+            modelBuilder.Entity<DiseaseType>(entity =>
+            {
+                entity.ToTable("DISEASE_TYPE");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.DiseaseType1)
+                    .IsRequired()
+                    .HasMaxLength(80)
+                    .IsUnicode(false)
+                    .HasColumnName("disease_type");
+            });
+
             modelBuilder.Entity<Institution>(entity =>
             {
                 entity.ToTable("INSTITUTION");
 
-                entity.HasIndex(e => e.Identifier, "UQ__INSTITUT__D112ED4860000709")
+                entity.HasIndex(e => e.Identifier, "UQ__INSTITUT__D112ED48AB41B165")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -386,12 +407,14 @@ namespace Finalproject.SqlServerContext
                     .HasColumnName("name_staff");
 
                 entity.Property(e => e.PasswordStaff)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("password_staff")
                     .HasDefaultValueSql("('None')");
 
                 entity.Property(e => e.UserStaff)
+                    .IsRequired()
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("user_staff")

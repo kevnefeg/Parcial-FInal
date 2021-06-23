@@ -10,7 +10,7 @@ namespace Finalproject.SqlServerContext
         public Citizen()
         {
             Appointments = new HashSet<Appointment>();
-            ChronicDeseases = new HashSet<ChronicDesease>();
+            ChronicDiseases = new HashSet<ChronicDisease>();
             CitizenxsideEffects = new HashSet<CitizenxsideEffect>();
         }
 
@@ -28,7 +28,7 @@ namespace Finalproject.SqlServerContext
         public virtual VacQueue IdQueueNavigation { get; set; }
         public virtual Vaccination IdVaccinationNavigation { get; set; }
         public virtual ICollection<Appointment> Appointments { get; set; }
-        public virtual ICollection<ChronicDesease> ChronicDeseases { get; set; }
+        public virtual ICollection<ChronicDisease> ChronicDiseases { get; set; }
         public virtual ICollection<CitizenxsideEffect> CitizenxsideEffects { get; set; }
     }
 }

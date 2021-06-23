@@ -5970,28 +5970,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\R0k3\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Mariana Lagrava\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\R0k3\\Desktop\\Proyecto\\Parcial-Final\\Finalproject\\Finalproject.csproj",
+      "projectUniqueName": "C:\\Users\\Mariana Lagrava\\Desktop\\Parcial-Final\\Finalproject\\Finalproject.csproj",
       "projectName": "Finalproject",
-      "projectPath": "C:\\Users\\R0k3\\Desktop\\Proyecto\\Parcial-Final\\Finalproject\\Finalproject.csproj",
-      "packagesPath": "C:\\Users\\R0k3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\R0k3\\Desktop\\Proyecto\\Parcial-Final\\Finalproject\\obj\\",
+      "projectPath": "C:\\Users\\Mariana Lagrava\\Desktop\\Parcial-Final\\Finalproject\\Finalproject.csproj",
+      "packagesPath": "C:\\Users\\Mariana Lagrava\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mariana Lagrava\\Desktop\\Parcial-Final\\Finalproject\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\R0k3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Mariana Lagrava\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0-windows7.0"
+        "net5.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
