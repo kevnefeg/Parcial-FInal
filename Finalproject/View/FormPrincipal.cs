@@ -21,7 +21,6 @@ namespace Finalproject
         private string expressionDUI = "^0[0-9]{7}-[0-9]{1}$";
         private string expressionPhone = "^[7|6|2][0-9]{7}$";
         private string emailExpression = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-        private List<ChronicDisease> diseases = new List<ChronicDisease>();
 
 
         public FrmPrincipal()
@@ -30,8 +29,8 @@ namespace Finalproject
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
-       {
-            if (txtDui.Text == "" || txtAge.Text == ""|| txtAddress.Text==""|| txtName.Text==""||
+        {
+            if (txtDui.Text == "" || txtAge.Text == "" || txtAddress.Text == "" || txtName.Text == "" ||
                txtPhone.Text == "")
             {
                 MessageBox.Show("No se permiten campos vacíos", "ERROR", MessageBoxButtons.OK,
@@ -39,19 +38,17 @@ namespace Finalproject
             }
             else
             {
-                if (txtEmail.Text != "") 
+                if (txtEmail.Text != "")
                 {
                     if (Regex.IsMatch(txtEmail.Text, emailExpression))
                     {
                         if (Regex.IsMatch(txtDui.Text, expressionDUI) && Regex.IsMatch(txtPhone.Text, expressionPhone))
                             AddingCitizen();
-
                         else
                         {
                             MessageBox.Show("DUI o teléfono inválidos", "ERROR", MessageBoxButtons.OK,
                                           MessageBoxIcon.Error);
                         }
-
                     }
                     else
                     {
@@ -63,14 +60,12 @@ namespace Finalproject
                 {
                     if (Regex.IsMatch(txtDui.Text, expressionDUI) && Regex.IsMatch(txtPhone.Text, expressionPhone))
                         AddingCitizen();
-
                     else
                     {
                         MessageBox.Show("DUI o teléfono inválidos", "ERROR", MessageBoxButtons.OK,
                                       MessageBoxIcon.Error);
                     }
                 }
-                
             }
 
         }
@@ -91,8 +86,8 @@ namespace Finalproject
                 cmbInstitution.DisplayMember = "Institution1";
                 cmbInstitution.ValueMember = "Id";
             }
-            else 
-            { 
+            else
+            {
                 txtIdentifier.Enabled = false;
                 cmbInstitution.Enabled = false;
                 btnAddNewInst.Enabled = false;
@@ -107,6 +102,8 @@ namespace Finalproject
             cmbInstitution.Enabled = false;
             txtDisease.Enabled = false;
             cmbDisType.Enabled = false;
+            button1.Enabled = false;
+            btnAddNewInst.Enabled = false;
 
             this.Activated += (s, evt) => { UpdateCMB(); };
 
@@ -121,6 +118,7 @@ namespace Finalproject
                 txtDisease.Enabled = true;
                 cmbDisType.Enabled = true;
                 stateDis = true;
+                button1.Enabled = true;
 
                 cmbDisType.DataSource = db.DiseaseTypes.ToList();
                 cmbDisType.DisplayMember = "DiseaseType1";
@@ -131,6 +129,7 @@ namespace Finalproject
                 txtDisease.Enabled = false;
                 cmbDisType.Enabled = false;
                 stateDis = false;
+                button1.Enabled = false;
 
             }
         }
@@ -168,10 +167,12 @@ namespace Finalproject
         private void AddingCitizen()
         {
             var db = new VaccinationDBContext();
-            Citizen newCitizen = new Citizen();
-           
+
             bool priority = false;
+            Citizen newCitizen = new Citizen();
+            List<ChronicDisease> diseases = new List<ChronicDisease>();
             int idType = 0;
+
 
             if (chkInstQuestion.Checked)
             {
@@ -187,7 +188,6 @@ namespace Finalproject
             }
 
 
-
             var citizens = db.Citizens.ToList();
             var resultCitizen = citizens.Where(
                     c => (c.Dui.Equals(txtDui.Text) ||
@@ -201,24 +201,23 @@ namespace Finalproject
 
             if (resultCitizen.Count == 0)
             {
-                //bool stateType = false;
-                //foreach (DataGridViewRow r in dgvDisease.Rows)
-                //{
-                //    if (Int32.Parse(r.Cells[2].Value.ToString()) == 2 ||
-                //        Int32.Parse(r.Cells[2].Value.ToString()) == 3)
-                //        stateType = true;
-                //}
+                bool stateType = false;
+                for (int i = 0; i < dgvDisease.RowCount; i++)
+                {
+                    if (Int32.Parse(dgvDisease.Rows[i].Cells[2].Value.ToString()) == 2 ||
+                        Int32.Parse(dgvDisease.Rows[i].Cells[2].Value.ToString()) == 3)
+                        stateType = true;
+                }
 
                 if (Int32.Parse(txtAge.Text) >= 60)
                     priority = true;
                 else if (idType == 1 || idType == 3 || idType == 4)
                     priority = true;
-                //else if (Int32.Parse(txtAge.Text) >= 18 && stateType)
-                //    priority = true;
+                else if (Int32.Parse(txtAge.Text) >= 18 && stateType)
+                    priority = true;
 
                 if (priority)
                 {
-
                     newCitizen.Dui = txtDui.Text;
                     newCitizen.Age = Int32.Parse(txtAge.Text);
                     newCitizen.CitizenName = txtName.Text;
@@ -227,9 +226,8 @@ namespace Finalproject
                     if (txtEmail.Text != "")
                         newCitizen.Email = txtEmail.Text;
 
-
-                   //Chequeando que hayan datos en la institución
-                    if (chkInstQuestion.Checked)
+                    //Si está marcado solo checkbox de institución
+                    if (chkInstQuestion.Checked && !chkDiseaseAsk.Checked)
                     {
                         if (txtIdentifier.Text == "")
                         {
@@ -245,22 +243,11 @@ namespace Finalproject
 
                             MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
+                            Clearing_Text();
                         }
                     }
-                    else
-                    {
-                        db.Add(newCitizen);
-                        db.SaveChanges();
-
-                        MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    }
-
-
-                    //Chequeando que hayan datos en la enfermedad
-                    ChronicDisease newDisease = new ChronicDisease();
-
-                    if (chkDiseaseAsk.Checked)
+                    //Si está marcado solo checkbox de Enfermedad
+                    else if (!chkInstQuestion.Checked && chkDiseaseAsk.Checked)
                     {
                         if (txtDisease.Text == "")
                         {
@@ -269,23 +256,57 @@ namespace Finalproject
                         }
                         else
                         {
-                            
                             for (int i = 0; i < Int32.Parse(dgvDisease.RowCount.ToString()); i++)
                             {
-                                newDisease.DuiCitizen = txtDui.Text;
-                                newDisease.ChronicDisease1 = dgvDisease.Rows[i].Cells[0].Value.ToString();
-                                newDisease.IdDiseaseType = Int32.Parse(dgvDisease.Rows[i].Cells[2].Value.ToString());
-                                diseases.Add(newDisease);
-                                //diseases[i].ChronicDisease1 = dgvDisease.Rows[i].Cells[0].Value.ToString();
-                                //diseases[i].IdDiseaseType = Int32.Parse(dgvDisease.Rows[i].Cells[2].Value.ToString());
+                                diseases.Add(new ChronicDisease(dgvDisease.Rows[i].Cells[0].Value.ToString(), txtDui.Text, Int32.Parse(dgvDisease.Rows[i].Cells[2].Value.ToString())));
                                 db.Add(diseases[i]);
                                 db.SaveChanges();
-                                newDisease = null;
                             }
+
+                            db.Add(newCitizen);
+                            db.SaveChanges();
+                            MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
                         }
                     }
+                    // Si están marcados ambos checkbox, institución y enfermedad
+                    else if (chkInstQuestion.Checked && chkDiseaseAsk.Checked)
+                    {
+                        if (txtDisease.Text == "" || txtIdentifier.Text == "")
+                        {
+                            MessageBox.Show("Nombre de Institución o enfermedad vacía", "Error", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            newCitizen.Identifier = txtIdentifier.Text;
+                            newCitizen.IdInstitution = cmbInstitution.SelectedIndex + 1;
+                            db.Add(newCitizen);
+                            db.SaveChanges();
 
-                    Clearing_Text();
+                            for (int i = 0; i < Int32.Parse(dgvDisease.RowCount.ToString()); i++)
+                            {
+                                diseases.Add(new ChronicDisease(dgvDisease.Rows[i].Cells[0].Value.ToString(), txtDui.Text, Int32.Parse(dgvDisease.Rows[i].Cells[2].Value.ToString())));
+                                db.Add(diseases[i]);
+                                db.SaveChanges();
+                            }
+
+                            MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            Clearing_Text();
+                        }
+                    }
+                    // Si ningún checkbox está marcado
+                    else
+                    {
+                        db.Add(newCitizen);
+                        db.SaveChanges();
+
+                        MessageBox.Show("Cita guardada", "Proceso de Cita", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        Clearing_Text();
+                    }
+
 
                     // Falta guardar hora y fecha de la cita...
 
@@ -303,12 +324,8 @@ namespace Finalproject
                 MessageBox.Show("DUI, teléfono, email o identificador ya existen ", "´Registro de Vacunación", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
             }
-             
-
 
         }
-
-
 
 
         private void FrmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
@@ -331,7 +348,7 @@ namespace Finalproject
                 }
                 else
                 {
-                    var result = types.Where(r => r.Id.Equals(cmbDisType.SelectedIndex+1)).ToList();
+                    var result = types.Where(r => r.Id.Equals(cmbDisType.SelectedIndex + 1)).ToList();
 
                     dgvDisease.Rows.Add(txtDisease.Text, result[0].DiseaseType1,
                         cmbDisType.SelectedIndex + 1);
@@ -340,8 +357,8 @@ namespace Finalproject
                         MessageBoxIcon.Information);
                 }
             }
-                       
-           
+
+
         }
     }
 }

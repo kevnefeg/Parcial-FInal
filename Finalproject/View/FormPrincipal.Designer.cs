@@ -31,6 +31,10 @@ namespace Finalproject
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabDateProcess = new System.Windows.Forms.TabPage();
+            this.dgvDisease = new System.Windows.Forms.DataGridView();
+            this.Enfermedad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoEnfermedad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -81,12 +85,9 @@ namespace Finalproject
             this.txt_Dui = new System.Windows.Forms.TextBox();
             this.lbl_Dui = new System.Windows.Forms.Label();
             this.tabVaccinationProcess = new System.Windows.Forms.TabPage();
-            this.dgvDisease = new System.Windows.Forms.DataGridView();
-            this.Enfermedad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoEnfermedad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabDateProcess.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -95,7 +96,6 @@ namespace Finalproject
             this.tableLayoutPanel2.SuspendLayout();
             this.tabDateFollowUp.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -125,6 +125,42 @@ namespace Finalproject
             this.tabDateProcess.TabIndex = 0;
             this.tabDateProcess.Text = "Proceso de cita";
             this.tabDateProcess.UseVisualStyleBackColor = true;
+            // 
+            // dgvDisease
+            // 
+            this.dgvDisease.AllowUserToAddRows = false;
+            this.dgvDisease.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDisease.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Enfermedad,
+            this.TipoEnfermedad,
+            this.IdTipo});
+            this.dgvDisease.Location = new System.Drawing.Point(441, 242);
+            this.dgvDisease.Name = "dgvDisease";
+            this.dgvDisease.ReadOnly = true;
+            this.dgvDisease.RowTemplate.Height = 25;
+            this.dgvDisease.Size = new System.Drawing.Size(304, 145);
+            this.dgvDisease.TabIndex = 19;
+            // 
+            // Enfermedad
+            // 
+            this.Enfermedad.HeaderText = "Enfermedad";
+            this.Enfermedad.Name = "Enfermedad";
+            this.Enfermedad.ReadOnly = true;
+            this.Enfermedad.Width = 125;
+            // 
+            // TipoEnfermedad
+            // 
+            this.TipoEnfermedad.HeaderText = "Tipo de enfermedad";
+            this.TipoEnfermedad.Name = "TipoEnfermedad";
+            this.TipoEnfermedad.ReadOnly = true;
+            this.TipoEnfermedad.Width = 135;
+            // 
+            // IdTipo
+            // 
+            this.IdTipo.HeaderText = "IdTipo";
+            this.IdTipo.Name = "IdTipo";
+            this.IdTipo.ReadOnly = true;
+            this.IdTipo.Visible = false;
             // 
             // groupBox3
             // 
@@ -663,37 +699,6 @@ namespace Finalproject
             this.tabVaccinationProcess.Text = "Vaccine Process";
             this.tabVaccinationProcess.UseVisualStyleBackColor = true;
             // 
-            // dgvDisease
-            // 
-            this.dgvDisease.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDisease.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Enfermedad,
-            this.TipoEnfermedad,
-            this.IdTipo});
-            this.dgvDisease.Location = new System.Drawing.Point(441, 242);
-            this.dgvDisease.Name = "dgvDisease";
-            this.dgvDisease.RowTemplate.Height = 25;
-            this.dgvDisease.Size = new System.Drawing.Size(304, 145);
-            this.dgvDisease.TabIndex = 19;
-            // 
-            // Enfermedad
-            // 
-            this.Enfermedad.HeaderText = "Enfermedad";
-            this.Enfermedad.Name = "Enfermedad";
-            this.Enfermedad.Width = 125;
-            // 
-            // TipoEnfermedad
-            // 
-            this.TipoEnfermedad.HeaderText = "Tipo de enfermedad";
-            this.TipoEnfermedad.Name = "TipoEnfermedad";
-            this.TipoEnfermedad.Width = 135;
-            // 
-            // IdTipo
-            // 
-            this.IdTipo.HeaderText = "IdTipo";
-            this.IdTipo.Name = "IdTipo";
-            this.IdTipo.Visible = false;
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -709,6 +714,7 @@ namespace Finalproject
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabDateProcess.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -723,7 +729,6 @@ namespace Finalproject
             this.tabDateFollowUp.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).EndInit();
             this.ResumeLayout(false);
 
         }
