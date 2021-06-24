@@ -7,6 +7,7 @@ namespace Finalproject.SqlServerContext
 {
     public partial class LoginInfo
     {
+        public int Id { get; set; }
         public int IdCabin { get; set; }
         public string IdStaff { get; set; }
         public DateTime LoginDate { get; set; }

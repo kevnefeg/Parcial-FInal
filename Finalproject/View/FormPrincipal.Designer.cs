@@ -31,23 +31,39 @@ namespace Finalproject
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabDateProcess = new System.Windows.Forms.TabPage();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.cmbInstitution = new System.Windows.Forms.ComboBox();
-            this.txtIdentifier = new System.Windows.Forms.TextBox();
-            this.lblInstitution = new System.Windows.Forms.Label();
+            this.dgvDisease = new System.Windows.Forms.DataGridView();
+            this.Enfermedad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoEnfermedad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtDui = new System.Windows.Forms.TextBox();
-            this.lblage = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.lblDui = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblname = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtAge = new System.Windows.Forms.TextBox();
+            this.txtDui = new System.Windows.Forms.TextBox();
+            this.lblage = new System.Windows.Forms.Label();
+            this.lblDui = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtDisease = new System.Windows.Forms.TextBox();
+            this.chkDiseaseAsk = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbDisType = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddNewInst = new System.Windows.Forms.Button();
+            this.cmbInstitution = new System.Windows.Forms.ComboBox();
+            this.chkInstQuestion = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblInstitution = new System.Windows.Forms.Label();
+            this.txtIdentifier = new System.Windows.Forms.TextBox();
+            this.btnRegister = new System.Windows.Forms.Button();
             this.tabVaccination = new System.Windows.Forms.TabPage();
             this.btnPrint = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -71,7 +87,11 @@ namespace Finalproject
             this.tabVaccinationProcess = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabDateProcess.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tabVaccination.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabDateFollowUp.SuspendLayout();
@@ -87,60 +107,70 @@ namespace Finalproject
             this.tabControl1.Location = new System.Drawing.Point(2, 51);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(763, 410);
+            this.tabControl1.Size = new System.Drawing.Size(763, 526);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
             // tabDateProcess
             // 
+            this.tabDateProcess.Controls.Add(this.dgvDisease);
+            this.tabDateProcess.Controls.Add(this.groupBox3);
+            this.tabDateProcess.Controls.Add(this.groupBox2);
+            this.tabDateProcess.Controls.Add(this.groupBox1);
             this.tabDateProcess.Controls.Add(this.btnRegister);
-            this.tabDateProcess.Controls.Add(this.cmbInstitution);
-            this.tabDateProcess.Controls.Add(this.txtIdentifier);
-            this.tabDateProcess.Controls.Add(this.lblInstitution);
-            this.tabDateProcess.Controls.Add(this.tableLayoutPanel1);
             this.tabDateProcess.Location = new System.Drawing.Point(4, 24);
             this.tabDateProcess.Name = "tabDateProcess";
             this.tabDateProcess.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDateProcess.Size = new System.Drawing.Size(755, 382);
+            this.tabDateProcess.Size = new System.Drawing.Size(755, 498);
             this.tabDateProcess.TabIndex = 0;
             this.tabDateProcess.Text = "Proceso de cita";
             this.tabDateProcess.UseVisualStyleBackColor = true;
             // 
-            // btnRegister
+            // dgvDisease
             // 
-            this.btnRegister.Location = new System.Drawing.Point(602, 302);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(114, 44);
-            this.btnRegister.TabIndex = 15;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.dgvDisease.AllowUserToAddRows = false;
+            this.dgvDisease.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDisease.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Enfermedad,
+            this.TipoEnfermedad,
+            this.IdTipo});
+            this.dgvDisease.Location = new System.Drawing.Point(441, 242);
+            this.dgvDisease.Name = "dgvDisease";
+            this.dgvDisease.ReadOnly = true;
+            this.dgvDisease.RowTemplate.Height = 25;
+            this.dgvDisease.Size = new System.Drawing.Size(304, 145);
+            this.dgvDisease.TabIndex = 19;
             // 
-            // cmbInstitution
+            // Enfermedad
             // 
-            this.cmbInstitution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbInstitution.FormattingEnabled = true;
-            this.cmbInstitution.Location = new System.Drawing.Point(377, 328);
-            this.cmbInstitution.Name = "cmbInstitution";
-            this.cmbInstitution.Size = new System.Drawing.Size(121, 23);
-            this.cmbInstitution.TabIndex = 14;
+            this.Enfermedad.HeaderText = "Enfermedad";
+            this.Enfermedad.Name = "Enfermedad";
+            this.Enfermedad.ReadOnly = true;
+            this.Enfermedad.Width = 125;
             // 
-            // txtIdentifier
+            // TipoEnfermedad
             // 
-            this.txtIdentifier.Location = new System.Drawing.Point(256, 328);
-            this.txtIdentifier.Name = "txtIdentifier";
-            this.txtIdentifier.Size = new System.Drawing.Size(100, 23);
-            this.txtIdentifier.TabIndex = 13;
+            this.TipoEnfermedad.HeaderText = "Tipo de enfermedad";
+            this.TipoEnfermedad.Name = "TipoEnfermedad";
+            this.TipoEnfermedad.ReadOnly = true;
+            this.TipoEnfermedad.Width = 135;
             // 
-            // lblInstitution
+            // IdTipo
             // 
-            this.lblInstitution.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblInstitution.AutoSize = true;
-            this.lblInstitution.Location = new System.Drawing.Point(125, 330);
-            this.lblInstitution.Name = "lblInstitution";
-            this.lblInstitution.Size = new System.Drawing.Size(116, 15);
-            this.lblInstitution.TabIndex = 12;
-            this.lblInstitution.Text = "Institution (optional)";
+            this.IdTipo.HeaderText = "IdTipo";
+            this.IdTipo.Name = "IdTipo";
+            this.IdTipo.ReadOnly = true;
+            this.IdTipo.Visible = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tableLayoutPanel1);
+            this.groupBox3.Location = new System.Drawing.Point(22, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(330, 282);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Datos generales";
             // 
             // tableLayoutPanel1
             // 
@@ -149,17 +179,17 @@ namespace Finalproject
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtPhone, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtAddress, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtDui, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblage, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblEmail, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.lblDui, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblPhone, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblname, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblAddress, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtAge, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(267, 41);
+            this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtAddress, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtAge, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtDui, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblage, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblDui, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(47, 22);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
@@ -188,40 +218,6 @@ namespace Finalproject
             this.txtPhone.Size = new System.Drawing.Size(95, 23);
             this.txtPhone.TabIndex = 10;
             // 
-            // txtAddress
-            // 
-            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.Location = new System.Drawing.Point(70, 132);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(95, 23);
-            this.txtAddress.TabIndex = 9;
-            // 
-            // txtName
-            // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(70, 91);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(95, 23);
-            this.txtName.TabIndex = 8;
-            // 
-            // txtDui
-            // 
-            this.txtDui.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDui.Location = new System.Drawing.Point(70, 50);
-            this.txtDui.Name = "txtDui";
-            this.txtDui.Size = new System.Drawing.Size(95, 23);
-            this.txtDui.TabIndex = 7;
-            // 
-            // lblage
-            // 
-            this.lblage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblage.AutoSize = true;
-            this.lblage.Location = new System.Drawing.Point(3, 13);
-            this.lblage.Name = "lblage";
-            this.lblage.Size = new System.Drawing.Size(61, 15);
-            this.lblage.TabIndex = 0;
-            this.lblage.Text = "Age";
-            // 
             // lblEmail
             // 
             this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -230,17 +226,7 @@ namespace Finalproject
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(61, 30);
             this.lblEmail.TabIndex = 5;
-            this.lblEmail.Text = "Email (optional)";
-            // 
-            // lblDui
-            // 
-            this.lblDui.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDui.AutoSize = true;
-            this.lblDui.Location = new System.Drawing.Point(3, 54);
-            this.lblDui.Name = "lblDui";
-            this.lblDui.Size = new System.Drawing.Size(61, 15);
-            this.lblDui.TabIndex = 1;
-            this.lblDui.Text = "Dui";
+            this.lblEmail.Text = "Email (opcional)";
             // 
             // lblPhone
             // 
@@ -250,7 +236,7 @@ namespace Finalproject
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(61, 15);
             this.lblPhone.TabIndex = 4;
-            this.lblPhone.Text = "Phone";
+            this.lblPhone.Text = "Teléfono:";
             // 
             // lblname
             // 
@@ -260,7 +246,7 @@ namespace Finalproject
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(61, 15);
             this.lblname.TabIndex = 2;
-            this.lblname.Text = "Name";
+            this.lblname.Text = "Nombre:";
             // 
             // lblAddress
             // 
@@ -270,15 +256,213 @@ namespace Finalproject
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(61, 15);
             this.lblAddress.TabIndex = 3;
-            this.lblAddress.Text = "Address";
+            this.lblAddress.Text = "Dirección:";
+            // 
+            // txtName
+            // 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.Location = new System.Drawing.Point(70, 91);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(95, 23);
+            this.txtName.TabIndex = 8;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAddress.Location = new System.Drawing.Point(70, 132);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(95, 23);
+            this.txtAddress.TabIndex = 9;
             // 
             // txtAge
             // 
             this.txtAge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAge.Location = new System.Drawing.Point(70, 9);
+            this.txtAge.Location = new System.Drawing.Point(70, 50);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(95, 23);
             this.txtAge.TabIndex = 6;
+            // 
+            // txtDui
+            // 
+            this.txtDui.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDui.Location = new System.Drawing.Point(70, 9);
+            this.txtDui.Name = "txtDui";
+            this.txtDui.Size = new System.Drawing.Size(95, 23);
+            this.txtDui.TabIndex = 7;
+            // 
+            // lblage
+            // 
+            this.lblage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblage.AutoSize = true;
+            this.lblage.Location = new System.Drawing.Point(3, 54);
+            this.lblage.Name = "lblage";
+            this.lblage.Size = new System.Drawing.Size(61, 15);
+            this.lblage.TabIndex = 0;
+            this.lblage.Text = "Edad:";
+            // 
+            // lblDui
+            // 
+            this.lblDui.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDui.AutoSize = true;
+            this.lblDui.Location = new System.Drawing.Point(3, 13);
+            this.lblDui.Name = "lblDui";
+            this.lblDui.Size = new System.Drawing.Size(61, 15);
+            this.lblDui.TabIndex = 1;
+            this.lblDui.Text = "DUI:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.txtDisease);
+            this.groupBox2.Controls.Add(this.chkDiseaseAsk);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.cmbDisType);
+            this.groupBox2.Location = new System.Drawing.Point(384, 22);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(361, 196);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Enfermedad crónica (opcional)";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(223, 161);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Agregar enfermedad";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtDisease
+            // 
+            this.txtDisease.Location = new System.Drawing.Point(145, 77);
+            this.txtDisease.Name = "txtDisease";
+            this.txtDisease.Size = new System.Drawing.Size(204, 23);
+            this.txtDisease.TabIndex = 17;
+            // 
+            // chkDiseaseAsk
+            // 
+            this.chkDiseaseAsk.AutoSize = true;
+            this.chkDiseaseAsk.Location = new System.Drawing.Point(73, 37);
+            this.chkDiseaseAsk.Name = "chkDiseaseAsk";
+            this.chkDiseaseAsk.Size = new System.Drawing.Size(215, 19);
+            this.chkDiseaseAsk.TabIndex = 16;
+            this.chkDiseaseAsk.Text = "¿Posee alguna enfermedad crónica?";
+            this.chkDiseaseAsk.UseVisualStyleBackColor = true;
+            this.chkDiseaseAsk.CheckedChanged += new System.EventHandler(this.chkDiseaseAsk_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 130);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 15);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Tipo de enfermedad:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(57, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 15);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Enfermedad:";
+            // 
+            // cmbDisType
+            // 
+            this.cmbDisType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDisType.FormattingEnabled = true;
+            this.cmbDisType.Location = new System.Drawing.Point(145, 121);
+            this.cmbDisType.Name = "cmbDisType";
+            this.cmbDisType.Size = new System.Drawing.Size(204, 23);
+            this.cmbDisType.TabIndex = 14;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnAddNewInst);
+            this.groupBox1.Controls.Add(this.cmbInstitution);
+            this.groupBox1.Controls.Add(this.chkInstQuestion);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblInstitution);
+            this.groupBox1.Controls.Add(this.txtIdentifier);
+            this.groupBox1.Location = new System.Drawing.Point(22, 304);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(404, 166);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Institución (opcional)";
+            // 
+            // btnAddNewInst
+            // 
+            this.btnAddNewInst.Location = new System.Drawing.Point(281, 121);
+            this.btnAddNewInst.Name = "btnAddNewInst";
+            this.btnAddNewInst.Size = new System.Drawing.Size(96, 29);
+            this.btnAddNewInst.TabIndex = 19;
+            this.btnAddNewInst.Text = "Agregar";
+            this.btnAddNewInst.UseVisualStyleBackColor = true;
+            this.btnAddNewInst.Click += new System.EventHandler(this.btnAddNewInst_Click);
+            // 
+            // cmbInstitution
+            // 
+            this.cmbInstitution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbInstitution.FormattingEnabled = true;
+            this.cmbInstitution.Location = new System.Drawing.Point(94, 125);
+            this.cmbInstitution.Name = "cmbInstitution";
+            this.cmbInstitution.Size = new System.Drawing.Size(172, 23);
+            this.cmbInstitution.TabIndex = 18;
+            // 
+            // chkInstQuestion
+            // 
+            this.chkInstQuestion.AutoSize = true;
+            this.chkInstQuestion.Location = new System.Drawing.Point(103, 34);
+            this.chkInstQuestion.Name = "chkInstQuestion";
+            this.chkInstQuestion.Size = new System.Drawing.Size(195, 19);
+            this.chkInstQuestion.TabIndex = 16;
+            this.chkInstQuestion.Text = "¿Pertenece a alguna institución?";
+            this.chkInstQuestion.UseVisualStyleBackColor = true;
+            this.chkInstQuestion.CheckedChanged += new System.EventHandler(this.chkInstQuestion_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 15);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Institución:";
+            // 
+            // lblInstitution
+            // 
+            this.lblInstitution.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblInstitution.AutoSize = true;
+            this.lblInstitution.Location = new System.Drawing.Point(6, 78);
+            this.lblInstitution.Name = "lblInstitution";
+            this.lblInstitution.Size = new System.Drawing.Size(82, 15);
+            this.lblInstitution.TabIndex = 12;
+            this.lblInstitution.Text = "Identificación:";
+            // 
+            // txtIdentifier
+            // 
+            this.txtIdentifier.Location = new System.Drawing.Point(94, 75);
+            this.txtIdentifier.Name = "txtIdentifier";
+            this.txtIdentifier.Size = new System.Drawing.Size(283, 23);
+            this.txtIdentifier.TabIndex = 13;
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Location = new System.Drawing.Point(607, 410);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(114, 44);
+            this.btnRegister.TabIndex = 15;
+            this.btnRegister.Text = "Registrar";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // tabVaccination
             // 
@@ -287,7 +471,7 @@ namespace Finalproject
             this.tabVaccination.Location = new System.Drawing.Point(4, 24);
             this.tabVaccination.Name = "tabVaccination";
             this.tabVaccination.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVaccination.Size = new System.Drawing.Size(755, 382);
+            this.tabVaccination.Size = new System.Drawing.Size(755, 498);
             this.tabVaccination.TabIndex = 1;
             this.tabVaccination.Text = "Vaccination";
             this.tabVaccination.UseVisualStyleBackColor = true;
@@ -392,7 +576,7 @@ namespace Finalproject
             this.tabDateFollowUp.Controls.Add(this.lbl_Dui);
             this.tabDateFollowUp.Location = new System.Drawing.Point(4, 24);
             this.tabDateFollowUp.Name = "tabDateFollowUp";
-            this.tabDateFollowUp.Size = new System.Drawing.Size(755, 382);
+            this.tabDateFollowUp.Size = new System.Drawing.Size(755, 498);
             this.tabDateFollowUp.TabIndex = 2;
             this.tabDateFollowUp.Text = "Date Follow Up";
             this.tabDateFollowUp.UseVisualStyleBackColor = true;
@@ -510,7 +694,7 @@ namespace Finalproject
             // 
             this.tabVaccinationProcess.Location = new System.Drawing.Point(4, 24);
             this.tabVaccinationProcess.Name = "tabVaccinationProcess";
-            this.tabVaccinationProcess.Size = new System.Drawing.Size(755, 382);
+            this.tabVaccinationProcess.Size = new System.Drawing.Size(755, 498);
             this.tabVaccinationProcess.TabIndex = 3;
             this.tabVaccinationProcess.Text = "Vaccine Process";
             this.tabVaccinationProcess.UseVisualStyleBackColor = true;
@@ -519,18 +703,25 @@ namespace Finalproject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 485);
+            this.ClientSize = new System.Drawing.Size(763, 589);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrincipal";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPrincipal_FormClosed);
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabDateProcess.ResumeLayout(false);
-            this.tabDateProcess.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisease)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabVaccination.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -556,7 +747,6 @@ namespace Finalproject
         private System.Windows.Forms.Label lblDui;
         private System.Windows.Forms.Label lblage;
         private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.ComboBox cmbInstitution;
         private System.Windows.Forms.TextBox txtIdentifier;
         private System.Windows.Forms.Label lblInstitution;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -584,5 +774,22 @@ namespace Finalproject
         private System.Windows.Forms.Label lbl_showname;
         private System.Windows.Forms.TextBox txt_Dui;
         private System.Windows.Forms.Label lbl_Dui;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox chkInstQuestion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox chkDiseaseAsk;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbDisType;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtDisease;
+        private System.Windows.Forms.ComboBox cmbInstitution;
+        private System.Windows.Forms.Button btnAddNewInst;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvDisease;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Enfermedad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoEnfermedad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdTipo;
     }
 }

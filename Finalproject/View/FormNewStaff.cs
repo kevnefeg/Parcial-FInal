@@ -96,10 +96,10 @@ namespace Finalproject
 
         private void frm_NewStaff_Load(object sender, EventArgs e)
         {
-            //var db = new VaccinationDBContext();
-            //cmb_StaffType.DataSource = db.StaffTypes.ToList();
-            //cmb_StaffType.DisplayMember = "StaffType1";
-            //cmb_StaffType.ValueMember = "Id";
+            var db = new VaccinationDBContext();
+            cmb_StaffType.DataSource = db.StaffTypes.ToList();
+            cmb_StaffType.DisplayMember = "StaffType1";
+            cmb_StaffType.ValueMember = "Id";
 
             tlpId.SetToolTip(cmb_StaffType, "Al ser un gestor se redireccionará a una ventana para elegir su contraseña. Su usuario será su identificador ");
         }

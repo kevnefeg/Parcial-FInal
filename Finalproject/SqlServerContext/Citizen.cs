@@ -20,6 +20,7 @@ namespace Finalproject.SqlServerContext
         public string AddressCitizen { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        public string Identifier { get; set; }
         public int? IdInstitution { get; set; }
         public int? IdQueue { get; set; }
         public int? IdVaccination { get; set; }
